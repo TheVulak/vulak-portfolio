@@ -2559,7 +2559,7 @@ body.js-enabled .reveal.visible {
   .hydra_gallery_art_card-layout {
     display: flex !important;
     flex-direction: column !important;
-    gap: 20px !important;
+    gap: 10px !important; /* Reducimos el espacio general entre elementos */
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 12px !important;
@@ -2567,20 +2567,21 @@ body.js-enabled .reveal.visible {
     position: relative !important;
   }
 
+  /* Vista previa más arriba */
+/* Vista previa más alta */
   .hydra_gallery_art_card-preview {
     order: 1 !important;
     position: relative !important;
-    /* Se adapta fluidamente al ancho de la pantalla con un tope de 600px */
     width: 100% !important;
     max-width: min(600px, 94vw) !important;
     min-width: 0 !important;
     
-    /* Altura fluida para que no sea excesivamente alto en móviles pequeños */
-    height: clamp(450px, 75vw, 700px) !important;
+    /* MODIFICA ESTOS VALORES PARA AUMENTAR EL ALTO DEL RECUADRO */
+    height: clamp(480px, 80vw, 750px) !important; /* Antes estaba más bajo (380px...600px) */
     min-height: 0 !important;
-    max-height: 700px !important;
+    max-height: 750px !important; /* Límite máximo aumentado a 750px (puedes subirlo más si gustas) */
     
-    margin: -40px auto !important; /* Margen superior ajustado para evitar solapamientos excesivos */
+    margin: -20px auto 0 auto !important; 
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -2589,19 +2590,18 @@ body.js-enabled .reveal.visible {
   }
 
   .hydra-gallery-divider {
-    /* Se adapta al ancho de la pantalla de manera fluida */
     width: 100% !important; 
     max-width: min(550px, 90vw) !important; 
-    min-width: 0 !important;                        
-    height: 2px !important;                                  
-    display: block !important;                         
+    min-width: 0 !important;                                         
+    height: 2px !important;                                             
+    display: block !important;                                 
     margin: 0 auto !important;    
     box-sizing: border-box !important;
   }
 
   .hydra-gallery-text-block {
-    margin: 8px auto -80px auto !important; /* Margen inferior adaptado para evitar colisiones */
-    font-size: clamp(0.9rem, 2.5vw, 1rem) !important; /* Texto fluido */
+    margin: 5px auto 15px auto !important; /* Empuja el contenido hacia arriba y deja espacio abajo */
+    font-size: clamp(0.9rem, 2.5vw, 1rem) !important; 
     text-align: center !important;
     line-height: 1.5 !important;
     font-family: inherit !important;
@@ -2612,18 +2612,17 @@ body.js-enabled .reveal.visible {
 
   #hydra_gallery_art_canvas-3d-container {
     position: absolute !important;
-    top: 50% !important;
+    top: 23.5% !important;
     left: 50% !important;
-    transform: translate(-50%, -50%) !important; /* Centrado absoluto perfecto y seguro */
+    transform: translate(-50%, -50%) !important;
     
-    /* Dimensiones fluidas para que el contenedor 3D se reduzca en pantallas chicas */
-    width: min(400px, 80vw) !important;
+    width: min(340px, 70vw) !important;
     max-width: 100% !important;
     min-width: 0 !important;
     
-    height: min(400px, 80vw) !important;
+    height: min(340px, 70vw) !important;
     min-height: 0 !important;
-    max-height: 400px !important;
+    max-height: 360px !important;
     
     box-sizing: border-box !important;
     overflow: hidden !important;
@@ -2637,26 +2636,26 @@ body.js-enabled .reveal.visible {
     object-fit: contain !important;
   }
 
+  /* Menú / Categorías mucho más abajo */
   .hydra_gallery_art_card-menu {
     order: 2 !important;
     height: auto !important;
     max-height: none !important;
     width: 100% !important;
-    margin-top: 100px !important; /* Espacio superior recalculado para evitar que pise los elementos anteriores */
-    margin-bottom: 0px !important; 
+    margin-top: 200px !important; /* Margen superior amplio para bajarlas claramente */
+    margin-bottom: 20px !important; 
     padding-bottom: 0px !important;
     box-sizing: border-box !important;
   }
 
   .hydra_gallery_art_card-header {
-    font-size: clamp(1.3rem, 4vw, 1.6rem) !important; /* Tamaño de cabecera adaptativo */
+    font-size: clamp(1.3rem, 4vw, 1.6rem) !important; 
     padding: 18px 20px !important;   
     box-sizing: border-box !important;
   }
 
   .hydra_gallery_art_card {
     display: grid !important;
-    /* Se adapta a columnas flexibles según el espacio, pasando de 4 a menos si es muy estrecho */
     grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)) !important; 
     justify-content: center !important; 
     align-content: center !important;   
@@ -2666,7 +2665,6 @@ body.js-enabled .reveal.visible {
     box-sizing: border-box !important;
   }
 }
-
 /* ==========================================================
    TOOLS
    ========================================================== */
