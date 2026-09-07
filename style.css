@@ -1258,25 +1258,26 @@ body.js-enabled .reveal.visible {
     box-sizing: border-box !important;
   }
 
-  /* Tarjeta principal (Main Card): centrada correctamente sin desplazamientos laterales raros */
   div.hydra-main-page-card,
   .hydra-main-page-card {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
     pointer-events: auto !important;
-    width: 100% !important;
-    height: 60% !important;
-    max-width: 100% !important;
+    width: 120% !important;
+    height: 80% !important;
+    min-height: 80% !important;
+    max-width: 120% !important;
     max-height: 60% !important;
-    margin: 200px auto !important; /* Centrado perfecto y limpio con 'auto' */
-    margin-left: -162.5px !important; /* Centrado perfecto y limpio con 'auto' */
+    margin: -85px !important; /* Centrado perfecto y limpio con 'auto' */
+    top: 700px;
     padding: 30px !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
     box-sizing: border-box !important;
   }
+
 
   /* Aseguramos que los elementos internos generales se muestren */
   .hydra-main-page-sub-card *,
