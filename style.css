@@ -3169,49 +3169,7 @@ body.js-enabled .reveal.visible {
 
 
   /* --- 2. SECCIÓN HYDRA TEAM (Centrada) --- */
-  .section.hydra-team-section {
-    padding: 30px 12px !important;
-    align-items: center !important;     /* <--- Centra la sección padre */
-  }
 
-  .hydra-team-content-wrapper {
-    width: 100% !important;
-    max-width: 600px !important; 
-    padding: 0 !important;
-    margin-left: auto !important;       /* <--- Centrado automático izquierdo */
-    margin-right: auto !important;      /* <--- Centrado automático derecho */
-    gap: 16px !important;
-    align-items: center !important;     /* <--- Centra el contenido */
-  }
-
-  .hydra-team-combined-card,
-  .hydra-team-callout {
-    width: 100% !important;
-    max-width: 450px !important;     
-    padding: 16px !important;
-    border-radius: 14px !important;
-    margin-left: auto !important;       /* <--- Centrado automático */
-    margin-right: auto !important;      /* <--- Centrado automático */
-    text-align: center !important;      /* <--- Texto centrado */
-  }
-
-  .hydra-team-title.line-1 {
-    font-size: 1.6rem !important;     
-    text-align: center !important;      /* <--- Título centrado */
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .hydra-team-text-wrapper,
-  .hydra-team-description {
-    font-size: 0.92rem !important; 
-    text-align: center !important;      /* <--- Texto centrado */
-  }
-
-  .hydra-team-img-wrapper {
-    margin-bottom: 12px !important;
-    text-align: center !important;      /* <--- Imagen centrada */
-  }
 }
 
 
