@@ -1508,112 +1508,425 @@ body.js-enabled .reveal.visible {
    TEAM
    ========================================================== */
 
+/* ==========================================================
+   TEAM (HYDRA TEAM SECTION) - RESPONSIVE OPTIMIZADA
+   ========================================================== */
+
 .section.hydra-team-section.reveal {
-    position: relative;
-    padding: 60px 0;
-    border-top: 1px solid hsla(0, 0%, 100%, 0.1);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+  position: relative;
+  padding: 96px 8%;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .section.hydra-team-section.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hydra-team-content-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: center;
 }
 
 .hydra-team-text-column {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .hydra-team-tag {
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--accent-color, hsla(143, 85%, 58%, 1));
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-color, hsla(143, 85%, 58%, 1));
 }
 
 .hydra-team-title.line-1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: hsla(0, 0%, 100%, 1);
-    line-height: 1.2;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: hsla(0, 0%, 100%, 1);
+  line-height: 1.2;
 }
 
 /* Efecto Tilt y Tarjeta Glassmorphism */
 .tilt-card {
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
 }
 
 .hydra-team-combined-card,
 .hydra-team-callout {
-    position: relative;
-    background: hsla(0, 0%, 100%, 0.03);
-    border: 1px solid hsla(0, 0%, 100%, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 20px;
-    padding: 30px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px hsla(0, 0%, 0%, 0.2);
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  background: linear-gradient(180deg, hsla(240, 60%, 10%, 0.75), hsla(230, 65%, 13%, 0.625) 50%, hsla(220, 70%, 16%, 0.5));
+  border: 3px solid hsla(200, 90%, 60%, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 32px;
+  overflow: hidden;
+  box-shadow: 0 12px 50px hsla(0, 0%, 0%, 0.18);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hydra-team-combined-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent,
-        hsla(0, 0%, 100%, 0.05),
-        transparent
-    );
-    transform: rotate(45deg);
-    pointer-events: none;
-    transition: 0.5s;
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    to right, 
+    hsla(0, 0%, 100%, 0) 0%, 
+    hsla(0, 0%, 100%, 0.28) 50%, 
+    hsla(0, 0%, 100%, 0) 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: none;
+}
+
+.hydra-team-combined-card:hover::after {
+  left: 125%;
+  transition: left 0.7s ease-in-out;
 }
 
 .hydra-team-combined-card:hover {
-    border-color: hsla(0, 0%, 100%, 0.2);
-    box-shadow: 0 20px 40px hsla(0, 0%, 0%, 0.4);
+  border-color: hsla(194, 100%, 62%, 0.58);
+  box-shadow: 0 22px 70px hsla(286, 100%, 64%, 0.1);
+  transform: translateY(-8px);
 }
 
 .hydra-team-img-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .hydra-team-image {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
 }
 
 .hydra-team-text-wrapper,
 .hydra-team-description {
-    color: var(--muted, hsla(0, 0%, 63%, 1));
+  color: var(--muted, hsla(0, 0%, 63%, 1));
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   MEDIA QUERIES AUTOMÁTICAS PARA HYDRA TEAM
+   ========================================================== */
+
+@media (max-width: 1024px) {
+  .hydra-team-content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section.hydra-team-section.reveal {
+    padding: 60px 20px;
+  }
+
+  .hydra-team-combined-card,
+  .hydra-team-callout {
+    padding: 24px;
+    border-radius: 18px;
+  }
+
+  .hydra-team-title.line-1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .hydra-team-tag {
+    text-align: center;
+  }
+
+  .hydra-team-text-wrapper,
+  .hydra-team-description {
     font-size: 1rem;
-    line-height: 1.6;
+    text-align: center;
+  }
+}
+
+/* Pantallas muy pequeñas / móviles estrechos */
+/* ==========================================================
+   TEAM (HYDRA TEAM SECTION) - RESPONSIVE OPTIMIZADA
+   ========================================================== */
+
+.section.hydra-team-section.reveal {
+  position: relative;
+  padding: 96px 8%;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.hydra-team-section.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hydra-team-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.hydra-team-text-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hydra-team-tag {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-color, hsla(143, 85%, 58%, 1));
+}
+
+.hydra-team-title.line-1 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: hsla(0, 0%, 100%, 1);
+  line-height: 1.2;
+}
+
+/* Efecto Tilt y Tarjeta Glassmorphism */
+.tilt-card {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.hydra-team-combined-card,
+.hydra-team-callout {
+  position: relative;
+  background: linear-gradient(180deg, hsla(240, 60%, 10%, 0.75), hsla(230, 65%, 13%, 0.625) 50%, hsla(220, 70%, 16%, 0.5));
+  border: 3px solid hsla(200, 90%, 60%, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 32px;
+  overflow: hidden;
+  box-shadow: 0 12px 50px hsla(0, 0%, 0%, 0.18);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hydra-team-combined-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    to right, 
+    hsla(0, 0%, 100%, 0) 0%, 
+    hsla(0, 0%, 100%, 0.28) 50%, 
+    hsla(0, 0%, 100%, 0) 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: none;
+}
+
+.hydra-team-combined-card:hover::after {
+  left: 125%;
+  transition: left 0.7s ease-in-out;
+}
+
+.hydra-team-combined-card:hover {
+  border-color: hsla(194, 100%, 62%, 0.58);
+  box-shadow: 0 22px 70px hsla(286, 100%, 64%, 0.1);
+  transform: translateY(-8px);
+}
+
+.hydra-team-img-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.hydra-team-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+.hydra-team-text-wrapper,
+.hydra-team-description {
+  color: var(--muted, hsla(0, 0%, 63%, 1));
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   MEDIA QUERIES AUTOMÁTICAS PARA HYDRA TEAM
+   ========================================================== */
+
+/* ==========================================================
+   TEAM (HYDRA TEAM SECTION) - RESPONSIVE OPTIMIZADA
+   ========================================================== */
+
+.section.hydra-team-section.reveal {
+  position: relative;
+  padding: 96px 8%;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.hydra-team-section.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hydra-team-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.hydra-team-text-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hydra-team-tag {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-color, hsla(143, 85%, 58%, 1));
+}
+
+.hydra-team-title.line-1 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: hsla(0, 0%, 100%, 1);
+  line-height: 1.2;
+}
+
+/* Efecto Tilt y Tarjeta Glassmorphism */
+.tilt-card {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.hydra-team-combined-card,
+.hydra-team-callout {
+  position: relative;
+  background: linear-gradient(180deg, hsla(240, 60%, 10%, 0.75), hsla(230, 65%, 13%, 0.625) 50%, hsla(220, 70%, 16%, 0.5));
+  border: 3px solid hsla(200, 90%, 60%, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 32px;
+  overflow: hidden;
+  box-shadow: 0 12px 50px hsla(0, 0%, 0%, 0.18);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hydra-team-combined-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    to right, 
+    hsla(0, 0%, 100%, 0) 0%, 
+    hsla(0, 0%, 100%, 0.28) 50%, 
+    hsla(0, 0%, 100%, 0) 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: none;
+}
+
+.hydra-team-combined-card:hover::after {
+  left: 125%;
+  transition: left 0.7s ease-in-out;
+}
+
+.hydra-team-combined-card:hover {
+  border-color: hsla(194, 100%, 62%, 0.58);
+  box-shadow: 0 22px 70px hsla(286, 100%, 64%, 0.1);
+  transform: translateY(-8px);
+}
+
+.hydra-team-img-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.hydra-team-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+.hydra-team-text-wrapper,
+.hydra-team-description {
+  color: var(--muted, hsla(0, 0%, 63%, 1));
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   MEDIA QUERIES AUTOMÁTICAS PARA HYDRA TEAM
+   ========================================================== */
+
+/* Ocultar la sección por completo en pantallas menores a 768px con máxima prioridad */
+@media (max-width: 768px) {
+  #section.hydra-team-section,
+  .section.hydra-team-section,
+  .section.hydra-team-section.reveal,
+  .section.hydra-team-section.reveal.visible {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    pointer-events: none !important;
+  }
 }
 
 /* ==========================================================
@@ -1798,7 +2111,7 @@ body.js-enabled .reveal.visible {
     max-width: 100% !important; 
     
     /* Hacemos que la altura también sea flexible o proporcional al ancho para evitar que se deforme verticalmente */
-    height: clamp(350px, 75vw, 500px) !important; 
+    height: clamp(300px, 75vw, 450px) !important; 
     
     margin: 0 auto !important;
     display: flex !important;
@@ -2248,6 +2561,7 @@ body.js-enabled .reveal.visible {
     flex-direction: column !important;
     gap: 20px !important;
     width: 100% !important;
+    max-width: 100% !important;
     padding: 0 12px !important;
     box-sizing: border-box !important;
     position: relative !important;
@@ -2256,13 +2570,17 @@ body.js-enabled .reveal.visible {
   .hydra_gallery_art_card-preview {
     order: 1 !important;
     position: relative !important;
-    width: 600px !important;
-    height: 700px !important;
-    min-width: 600px !important;
-    min-height: 700px !important;
-    max-width: 600px !important;
+    /* Se adapta fluidamente al ancho de la pantalla con un tope de 600px */
+    width: 100% !important;
+    max-width: min(600px, 94vw) !important;
+    min-width: 0 !important;
+    
+    /* Altura fluida para que no sea excesivamente alto en móviles pequeños */
+    height: clamp(450px, 75vw, 700px) !important;
+    min-height: 0 !important;
     max-height: 700px !important;
-    margin: -100px auto !important;
+    
+    margin: -40px auto !important; /* Margen superior ajustado para evitar solapamientos excesivos */
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -2271,35 +2589,42 @@ body.js-enabled .reveal.visible {
   }
 
   .hydra-gallery-divider {
-    width: 550px !important; 
-    min-width: 550px !important;                             
-    max-width: 550px !important;                             
-    height: 2px !important;                                    
-    display: block !important;                              
+    /* Se adapta al ancho de la pantalla de manera fluida */
+    width: 100% !important; 
+    max-width: min(550px, 90vw) !important; 
+    min-width: 0 !important;                        
+    height: 2px !important;                                  
+    display: block !important;                         
     margin: 0 auto !important;    
+    box-sizing: border-box !important;
   }
 
   .hydra-gallery-text-block {
-    margin: 8px auto -140px auto !important; 
-    font-size: 1rem !important;     
+    margin: 8px auto -80px auto !important; /* Margen inferior adaptado para evitar colisiones */
+    font-size: clamp(0.9rem, 2.5vw, 1rem) !important; /* Texto fluido */
     text-align: center !important;
     line-height: 1.5 !important;
     font-family: inherit !important;
     width: 90% !important;
     max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   #hydra_gallery_art_canvas-3d-container {
     position: absolute !important;
-    top: 300px !important;
-    left: 55% !important;
-    transform: translateX(-50%) !important;
-    width: 400px !important;
-    max-width: 400px !important;
-    min-width: 400px !important;
-    height: 400px !important;
-    min-height: 400px !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; /* Centrado absoluto perfecto y seguro */
+    
+    /* Dimensiones fluidas para que el contenedor 3D se reduzca en pantallas chicas */
+    width: min(400px, 80vw) !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    
+    height: min(400px, 80vw) !important;
+    min-height: 0 !important;
     max-height: 400px !important;
+    
     box-sizing: border-box !important;
     overflow: hidden !important;
     margin: 0 !important;
@@ -2309,6 +2634,7 @@ body.js-enabled .reveal.visible {
     width: 100% !important;
     height: 100% !important;
     box-sizing: border-box !important;
+    object-fit: contain !important;
   }
 
   .hydra_gallery_art_card-menu {
@@ -2316,23 +2642,28 @@ body.js-enabled .reveal.visible {
     height: auto !important;
     max-height: none !important;
     width: 100% !important;
-    margin-top: 240px !important; 
+    margin-top: 100px !important; /* Espacio superior recalculado para evitar que pise los elementos anteriores */
     margin-bottom: 0px !important; 
     padding-bottom: 0px !important;
+    box-sizing: border-box !important;
   }
 
   .hydra_gallery_art_card-header {
-    font-size: 1.6rem !important;   
-    padding: 22px 26px !important;   
+    font-size: clamp(1.3rem, 4vw, 1.6rem) !important; /* Tamaño de cabecera adaptativo */
+    padding: 18px 20px !important;   
+    box-sizing: border-box !important;
   }
 
   .hydra_gallery_art_card {
     display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
+    /* Se adapta a columnas flexibles según el espacio, pasando de 4 a menos si es muy estrecho */
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)) !important; 
     justify-content: center !important; 
     align-content: center !important;   
-    gap: 20px !important;         
+    gap: 12px !important;         
     margin-bottom: 0 !important;        
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
 
@@ -3170,70 +3501,6 @@ body.js-enabled .reveal.visible {
     max-width: 100% !important;
     width: 100% !important;
     text-align: center !important;      /* <--- Texto centrado */
-  }
-
-
-  /* --- 2. SECCIÓN HYDRA TEAM (Centrada) --- */
-.section.hydra-team-section {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 30px 16px !important;
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;    /* Centra la sección padre */
-  }
-
-  .hydra-team-content-wrapper {
-    width: 100% !important;
-    /* Se adapta fluidamente: ocupa el 100% en móviles pero respeta un tope máximo de 600px en pantallas más grandes */
-    max-width: min(600px, 100%) !important; 
-    padding: 0 !important;
-    margin-left: auto !important;      /* Centrado automático izquierdo */
-    margin-right: auto !important;     /* Centrado automático derecho */
-    gap: 16px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;    /* Centra el contenido */
-    box-sizing: border-box !important;
-  }
-
-  .hydra-team-combined-card,
-  .hydra-team-callout {
-    width: 100% !important;
-    /* Se adapta al ancho de la pantalla pero mantiene tu tamaño máximo ideal de 450px */
-    max-width: min(450px, 100%) !important;     
-    padding: 16px !important;
-    border-radius: 14px !important;
-    margin-left: auto !important;      /* Centrado automático */
-    margin-right: auto !important;     /* Centrado automático */
-    text-align: center !important;     /* Texto centrado */
-    box-sizing: border-box !important;
-  }
-
-  .hydra-team-title.line-1 {
-    /* Mantiene tu tamaño de 1.6rem pero usa clamp para reducirse ligeramente en móviles muy pequeños si fuera necesario */
-    font-size: clamp(1.3rem, 4vw, 1.6rem) !important;     
-    text-align: center !important;     /* Título centrado */
-    width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .hydra-team-text-wrapper,
-  .hydra-team-description {
-    font-size: 0.92rem !important; 
-    text-align: center !important;     /* Texto centrado */
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  .hydra-team-img-wrapper {
-    width: 100% !important;
-    margin-bottom: 12px !important;
-    text-align: center !important;     /* Imagen centrada */
-    display: flex !important;
-    justify-content: center !important;
   }
 }
 
