@@ -1340,18 +1340,26 @@ body.js-enabled .reveal.visible {
     gap: -10px !important;
   }
 
-  .hydra-main-page-content .hydra-main-page-left .hydra-main-page-staggered-titles .hydra-main-page-title,
+.hydra-main-page-content .hydra-main-page-left .hydra-main-page-staggered-titles .hydra-main-page-title,
   .hydra-main-page-title.line-1,
   .hydra-main-page-title.line-2,
   .hydra-main-page-title.line-3 {
     display: flex !important;
     visibility: visible !important;
-    font-size: 95px !important; 
-    line-height: 1.1 !important; 
+    
+    /* Tamaño fluido: escala de forma responsiva entre 48px (móviles) y 95px (escritorio/pantallas grandes) */
+    font-size: clamp(48px, 9vw, 95px) !important; 
+    
+    line-height: 1.05 !important; 
     margin-left: 0px !important;   
     margin-top: 20px !important;    
     margin-bottom: 0px !important;
-    white-space: nowrap !important;
+    
+    /* Cambiamos a normal o wrap para permitir que se adapte si la pantalla es muy pequeña, 
+       evitando que se salga de la pantalla (puedes usar 'normal' o 'pre-wrap') */
+    white-space: normal !important; 
+    word-break: break-word !important;
+    
     text-align: left !important;  
   }
 
