@@ -1,0 +1,2419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet">
+
+  <title>Vulak/Rex | Blockbench Artist</title>
+  <meta
+    name="description"
+    content="Portfolio of Vulak/Rex, Minecraft Bedrock Addon Developer and 3D Artist creating custom models, items, blocks, and add-ons."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="icon" type="image/png" href="hydra_material/vulak_pfp.png">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="noise"></div>
+  <div class="page-glow"></div>
+  
+  <header class="hero" id="home">
+<nav class="hydra_navigation_bar reveal">
+  <a class="hydra_navigation_bar__logo" href="#home">
+    <img class="hydra_navigation_bar__logo-img" src="hydra_material/vulak_pfp.png" alt="Hydra Team logo">
+    Vulak/Rex | Blockbench Artist
+  </a>
+
+  <div class="hydra_navigation_bar__links">
+    <a href="#hydra_interactive_showcase_section">Featured models</a>
+    <a href="#showcase">Artwork gallery</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact me</a>
+  </div>
+
+  <!-- Botón de Audio Interactivo (Sound On / Sound Off) -->
+  <button class="hydra_navigation_bar__audio-btn" id="audioToggleBtn" aria-label="Toggle Audio" onclick="toggleAudioState()">
+    <svg class="hydra_navigation_bar__audio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Altavoz y ondas base -->
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <path class="audio-waves" d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      <!-- Línea diagonal de silencio (Sound Off) -->
+      <line class="audio-slash" x1="1" y1="1" x2="23" y2="23" style="display: none;"></line>
+    </svg>
+  </button>
+
+<audio id="backgroundAudio" loop preload="auto">
+  <source src="hydra_material/sounds/Tokyo Music Walker - Way Home.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="hoverSound" preload="auto">
+  <source src="hydra_material/sounds/bop.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="1" loop preload="auto">
+  <source src="hydra_material/sounds/bop.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="2" loop preload="auto">
+  <source src="hydra_material/sounds/hammer_v2.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="switchSound" loop preload="auto">
+  <source src="hydra_material/sounds/tick.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="openSound" src="hydra_material/sounds/swoosh.mp3" preload="auto"></audio>
+
+<audio id="closeSound" src="hydra_material/sounds/woosh.mp3" preload="auto"></audio>
+
+</nav>
+
+<!-- /* 
+==========================================================
+MAIN PAGE
+========================================================== 
+*/ -->
+
+<section class="hydra-main-page-content reveal">
+<div class="hydra-main-page-left">
+    <!-- Etiqueta superior (Tag) -->
+    <p class="hydra-main-page-tag">Minecraft artist</p>
+
+    <!-- Contenedor de títulos escalonados -->
+    <div class="hydra-main-page-staggered-titles">
+<h1 class="hydra-main-page-title line-2"style="font-family: 'New Rocker', cursive; font-weight: 450;">From your mind</h1>
+<h1 class="hydra-main-page-title line-2" style="font-family: 'New Rocker', cursive; font-weight: 450;">to</h1>
+<h1 class="hydra-main-page-title line-3" style="font-family: 'New Rocker', cursive; font-weight: 450;">your world</h1>
+    </div>
+
+    <!-- Línea divisora -->
+    <hr class="hydra-main-page-divider">
+
+    <!-- 3 Tarjetas una al lado de la otra -->
+    <div class="hydra-main-page-cards-row">
+      <!-- Tarjeta 1 -->
+      <div class="hydra-main-page-sub-card">
+        <div class="hydra-main-page-card-center-desc">
+          <h3 class="hydra-main-page-card-title-large">2024</h3>
+          <p class="hydra-main-page-card-badge-desc">Started as a creator</p>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="hydra-main-page-sub-card">
+        <div class="hydra-main-page-card-center-desc">
+          <h3 class="hydra-main-page-card-title-large">Skills</h3>
+          <p class="hydra-main-page-card-badge-desc">High models quality work</p>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="hydra-main-page-sub-card">
+        <div class="hydra-main-page-card-center-desc">
+          <h3 class="hydra-main-page-card-title-large">Team</h3>
+          <p class="hydra-main-page-card-badge-desc">Hydra team owner</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Párrafo de descripción (opcional) -->
+    <!-- <p class="hydra-main-page-description">...</p> -->
+
+  </div>
+
+
+  <!-- ZONA DERECHA: El script inyectará el visor 3D aquí primero -->
+  <div class="hydra-main-page-right-custom">
+    <!-- El visor 3D se inyecta automáticamente aquí arriba -->
+
+    <!-- Tarjeta principal de Vulak -->
+<div class="hydra-main-page-card">
+  <!-- Esquina superior: Imagen y Título grueso juntos -->
+  <div class="hydra-main-page-card-top-header">
+    <img src="hydra_material/vulak_pfp.png" alt="Icono" class="badge-image">
+    <span class="badge-title">Vulak/Rex</span>
+  </div>
+
+  <!-- Centro de la tarjeta: Texto de descripción y los 3 botones -->
+  <div class="hydra-main-page-card-center-desc">
+    <p class="hydra-main-page-card-badge-desc">
+      Hey, hello! Welcome to my page! It's great to see you here. My name is Vulak/Rex, I'm a blockbench artist. I make all kinds of models, entities, weapons, armors, skins, blocks, cosmetics, anything you can imagine!
+    </p>
+
+    <!-- Contenedor de los botones -->
+    <div class="hydra-card-buttons">
+      <!-- Reemplaza 'https://tu-enlace-de-donacion.com' por tu link real -->
+      <a href="https://ko-fi.com/vulak" class="hydra-card-btn" target="_blank" rel="noopener noreferrer">Support me</a>
+      <a href="#projects" class="hydra-card-btn">My work</a>
+      <a href="#contact" class="hydra-card-btn">Contact me</a>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+</header>
+<main>
+
+<!-- /* 
+==========================================================
+ABOUT ME
+========================================================== 
+*/ -->
+
+<section class="section about reveal">
+  <div class="hydra_about_me_card-content-wrapper">
+    <!-- Columna principal -->
+    <div class="hydra_about_me_card-text-column">
+      <p class="section-tag">INFO</p>
+      <h2 class="hero-title line-1">About me</h2>
+      
+      <!-- Tarjeta unificada con la nueva estructura de clases -->
+      <div class="hydra_about_me_card tilt-card">
+        
+        <!-- Contenedor del Video (Interno) -->
+        <div class="hydra_about_me_card-video-wrapper">
+          <video class="about-image" autoplay muted loop playsinline>
+            <source src="./hydra_material/hydra_page_material/knight_ascension_page_material.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <!-- Contenedor del Texto (Interno) -->
+        <div class="hydra_about_me_card-text-wrapper">
+          <p class="hydra_about_me_card-callout" style="margin: 0;"> I've been a Blockbench artist since 2024. I've been creating projects and collaborating on established ones for a while now. I enjoy designing armor and armor. I think one of my best skills is using color theory and visual representation when creating my models.
+          <p class="hydra_about_me_card-subcallout" style="margin: 0;" > I'm a big fan of rock, metal, folk and knightcore. Personally, if you have a medieval-themed request, I'd be incredibly happy.
+          </p>
+          </p> <!-- Etiqueta de cierre añadida correctamente -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- /* 
+==========================================================
+HYDRA TEAM
+========================================================== 
+*/ -->
+
+<section class="section about reveal">
+  <div class="hydra_about_me_card-content-wrapper">
+    <!-- Columna principal -->
+    <div class="hydra_about_me_card-text-column">
+      <p class="section-tag">team</p>
+      <h2 class="hero-title line-1">Hydra team</h2>
+      
+      <!-- Tarjeta unificada con la nueva estructura de clases -->
+      <div class="hydra_about_me_card tilt-card">
+        
+        <!-- Contenedor de la Imagen (Adaptado de la estructura de video) -->
+        <div class="hydra_about_me_card-img-wrapper" style="width: 420px; min-width: 420px; height: auto; flex-shrink: 0; border-radius: 12px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+          <img class="hydra-team-image" src="./hydra_material/hydra_page_material/hydra_team_page_material.png" alt="Hydra Team Material" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+        </div>
+        
+        <!-- Contenedor del Texto (Interno) -->
+        <div class="hydra_about_me_card-text-wrapper">
+          <p class="hydra_about_me_card-callout" style="margin: 0;"> As you can see, I'm the owner of Hydra Team, a cross-platform Minecraft content creation team with a well-established community. We have several popular projects and, even more importantly, some extremely talented members.
+          <p class="hydra_about_me_card-subcallout" style="margin: 0;" > Alpharius, Vulak, Hamleth harena, AngelosoYT, Alaniz, SystemTV, Laniraxia, Meluch, EndXenox, Salmule fish, Alan cape.
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- /* 
+==========================================================
+SKILLS
+========================================================== 
+*/ -->
+
+<section id="hydra_skills" class="section reveal">
+  <p class="section-tag">Skills</p>
+  <h2>I can do</h2>
+  <div class="hydra_skills_grid">
+
+    <!-- /*SKILLS - Models*/ -->
+    <div class="hydra_skills_card">
+      <span>01 | Modeling</span>
+      <h3>Pretty models</h3>
+      <p>My main skill is the 3D modeling and the use of the color theory to make spectacular models.</p>
+    </div>
+
+    <!-- /*SKILLS - Pixel art*/ -->
+    <div class="hydra_skills_card">
+      <span>02 | Items</span>
+      <h3>Pixel art sprites</h3>
+      <p>Some models needs a pixel art 2D sprite to use it properly, i cand do items blocks and materials.</p>
+    </div>
+
+    <!-- /*SKILLS - Animations*/ -->
+    <div class="hydra_skills_card">
+      <span>03 | Animations</span>
+      <h3>Model movement</h3>
+      <p>The model needs animations and vfx to look more  spectacular, i can do animations first and third person and vfx for your models.</p>
+    </div>
+
+    <!-- /*SKILLS - Platforms*/ -->
+    <div class="hydra_skills_card">
+      <span>04 | Platform</span>
+      <h3>Multiple formats</h3>
+      <p> I cam import and adjust the models for all mc platforms java, bedrock, geckolib, glb, optifine and Blockbench generic model.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- /* 
+==========================================================
+SHOWCASE
+========================================================== 
+*/ -->
+
+<section id="hydra_interactive_showcase_section" class="section reveal">
+  <div class="section-heading">
+    <div>
+      <p class="section-tag">Model showcase</p>
+      <h2>Featured models</h2>
+      <p class="section-intro">
+    This tab contains some of my best models in an interactive format so you can see them in detail!!.
+  </p>
+    </div>
+  </div>
+
+  <div class="hydra_interactive_showcase_wrapper" style="grid-template-columns: 1fr;">
+    <div id="hydra_interactive_showcase_canvas_container" class="hydra_interactive_showcase_card" style="height: 1200px;">
+      <div id="hydra_interactive_showcase_loader">Loading interactive model...</div>
+    </div>
+  </div>
+</section>
+
+<!-- /* 
+==========================================================
+ARTWORK GALLERY
+========================================================== 
+*/ -->
+
+    <section id="showcase" class="section reveal">
+      <div class="section-heading">
+        <div>
+          <p class="section-tag">model showcase</p>
+          <h2>Artwork gallery</h2>
+            <p class="section-intro">
+    This is an interactive showcase gallery to which I will constantly be adding content.
+  </p>
+        </div>
+      </div>
+
+      <div class="hydra_gallery_art_card-layout">
+        <!-- Columna Izquierda: Menú de Categorys -->
+        <div class="hydra_gallery_art_card-menu">
+          
+          <!-- Category I: Weapon models -->
+
+          <div class="hydra_gallery_art_card-item open">
+            <button class="hydra_gallery_art_card-header" type="button">
+              <div class="hydra_gallery_art_card-title-group">
+                <img src="./hydra_material/category_thumbnails/weapons_category.png" alt="Icon" class="hydra_gallery_art_card-icon">
+                <span>Weapon & Tools models</span>
+              </div>
+              <span class="arrow">▼</span>
+            </button>
+            
+            <div class="hydra_gallery_art_card-content">
+              
+              <style>
+                /* ==========================================================
+                   PANEL DE CONFIGURACIÓN RÁPIDA (LÍNEA Y TEXTO)
+                   ========================================================== */
+:root {
+    --line-color: hsla(200, 90%, 60%, 0.75);         
+    --line-glow: hsla(168, 70%, 32%, 0.6); 
+    --line-height: 1.5px;          
+    --line-width: 95%;           
+    --line-margin-top: 10px;     
+    --line-margin-bottom: 10px;   
+    --line-align: center;        
+    --line-offset-x: 0px;        
+
+    --text-color: hsla(214, 20%, 69%, 1);       
+    --text-size: 1.25rem;         
+    --text-weight: 800;          
+    --text-margin-top: 4px;      
+    --text-align: left;          
+    --text-offset-x: 16px;        
+  }
+
+                /* Personalización de la barra de scroll */
+#skins-gallery::-webkit-scrollbar {
+    width: 6px;
+  }
+#skins-gallery::-webkit-scrollbar-track {
+    background: hsla(192, 56%, 9%, 0.4);
+    border-radius: 4px;
+  }
+#skins-gallery::-webkit-scrollbar-thumb {
+    background: hsla(200, 90%, 60%, 0.5);
+    border-radius: 4px;
+  }
+                #skins-gallery::-webkit-scrollbar-thumb:hover {
+                  background: hsla(169, 70%, 41%, 1);
+                }
+
+                /* Contenedor flexible para alinear la línea horizontalmente */
+                .category-divider-container {
+                  display: flex;
+                  width: 100%;
+                  justify-content: var(--line-align);
+                  margin-top: var(--line-margin-top);
+                  margin-bottom: var(--line-margin-bottom);
+                }
+
+                /* Estilos de la línea con movimiento pixel a pixel */
+                .hydra_gallery_art_card-item.active .category-divider {
+                  display: block;
+                  height: var(--line-height);
+                  width: var(--line-width);
+                  background: var(--line-color);
+                  box-shadow: 0 0 8px var(--line-glow);
+                  transform: translateX(var(--line-offset-x));
+                }
+                .hydra_gallery_art_card-item:not(.open) .category-divider-container {
+                  display: none;
+                }
+
+                /* Estilos y posición del texto con movimiento pixel a pixel */
+                .category-footer-text {
+                  font-size: var(--text-size);
+                  color: var(--text-color);
+                  font-weight: var(--text-weight);
+                  text-align: var(--text-align);
+                  margin-top: var(--text-margin-top);
+                  transform: translateX(var(--text-offset-x));
+                }
+              </style>
+
+              <div class="mini-gallery" id="skins-gallery" style="max-height: 256px; overflow-y: auto; padding-right: 6px; scrollbar-width: thin; scrollbar-color: hsla(200, 90%, 60%, 0.75) hsla(192, 56%, 9%, 0.5);">
+                
+                <img src="./hydra_material/artwork/artwork_weapons/png/pure_diamond/pure_diamond_sword.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_sword.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/artwork/artwork_weapons/png/pure_diamond/pure_diamond_katana.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_katana.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/artwork/artwork_weapons/png/pure_diamond/pure_diamond_greatsword.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_greatsword.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/artwork/artwork_weapons/png/pure_diamond/pure_diamond_mace.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_mace.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/artwork/artwork_weapons/png/pure_diamond/pure_diamond_spear.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_spear.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/artwork/artwork_weapons/png/pure_diamond/pure_diamond_hammer.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_hammer.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/artwork/artwork_weapons/png/pure_diamond/pure_diamond_axe.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_axe.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/artwork/artwork_weapons/png/pure_diamond/pure_diamond_pickaxe.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_pickaxe.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+
+                <img src="./hydra_material/artwork/artwork_weapons/png/pure_diamond/pure_diamond_hoe.png" 
+                     alt="Weapon & Tool IX | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_hoe.mp4" 
+                     data-title="Pure Diamond Hoe">
+                     
+                <img src="./hydra_material/artwork/artwork_weapons/png/pure_diamond/pure_diamond_shovel.png" 
+                     alt="Weapon & Tool X | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_shovel.mp4" 
+                     data-title="Pure Diamond Shovel">
+                     
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_sword.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_katana.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_greatsword.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_mace.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_spear.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_hammer.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_axe.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_pickaxe.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IX | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_hoe.mp4" 
+                     data-title="Pure Diamond Hoe">
+                     
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool X | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_weapons/mp4/pure_diamond/pure_diamond_shovel.mp4" 
+                     data-title="Pure Diamond Shovel">
+              </div>
+
+              <div class="category-divider-container">
+                <div class="category-divider"></div>
+              </div>
+
+              <div class="category-footer-text">
+                3D\2D Blocks (32 Models)
+              </div>
+
+            </div>
+          </div>
+          <!-- Category II: Armor models -->
+
+          <div class="hydra_gallery_art_card-item open">
+            <button class="hydra_gallery_art_card-header" type="button">
+              <div class="hydra_gallery_art_card-title-group">
+                <img src="./hydra_material/category_thumbnails/armor_category.png" alt="Icon" class="hydra_gallery_art_card-icon">
+                <span>Armor set models</span>
+              </div>
+              <span class="arrow">▼</span>
+            </button>
+            
+            <div class="hydra_gallery_art_card-content">
+              
+              <style>
+                /* ==========================================================
+                   PANEL DE CONFIGURACIÓN RÁPIDA (LÍNEA Y TEXTO)
+                   ========================================================== */
+                :root {
+                  /* --- CONFIGURACIÓN DE LA LÍNEA --- */
+                  --line-color: hsla(200, 90%, 60%, 0.75);         /* Color de la línea */
+                  --line-glow: hsla(168, 70%, 32%, 0.6); /* Color del brillo (neón) */
+                  --line-height: 1.5px;          /* Grosor de la línea */
+                  --line-width: 95%;           /* Largo de la línea (ej: 100%, 80%, 250px) */
+                  --line-margin-top: 10px;     /* Espacio arriba de la línea */
+                  --line-margin-bottom: 10px;   /* Espacio abajo de la línea */
+                  --line-align: center;        /* Posición horizontal general: center, flex-start, flex-end */
+                  --line-offset-x: 0px;        /* Mover línea píxel a píxel horizontalmente (ej: 5px, -10px) */
+
+                  /* --- CONFIGURACIÓN DEL TEXTO --- */
+                  --text-color: hsla(214, 20%, 69%, 1);       /* Color del texto */
+                  --text-size: 1.25rem;         /* Tamaño de la fuente (ej: 14px, 0.9rem) */
+                  --text-weight: 800;          /* Grosor de la fuente (400 normal, 600 negrita) */
+                  --text-margin-top: 4px;      /* Espacio superior del texto (distancia con la línea) */
+                  --text-align: left;          /* Posición horizontal general: left, center, right */
+                  --text-offset-x: 16px;        /* Mover texto píxel a píxel horizontalmente (ej: 12px, -5px) */
+                }
+
+                /* Personalización de la barra de scroll */
+                #skins-gallery::-webkit-scrollbar {
+                  width: 6px;
+                }
+                #skins-gallery::-webkit-scrollbar-track {
+                  background: hsla(192, 56%, 9%, 0.4);
+                  border-radius: 4px;
+                }
+                #skins-gallery::-webkit-scrollbar-thumb {
+                  background: hsla(200, 90%, 60%, 0.75);
+                  border-radius: 4px;
+                }
+                #skins-gallery::-webkit-scrollbar-thumb:hover {
+                  background: hsla(169, 70%, 41%, 1);
+                }
+
+                /* Contenedor flexible para alinear la línea horizontalmente */
+                .category-divider-container {
+                  display: flex;
+                  width: 100%;
+                  justify-content: var(--line-align);
+                  margin-top: var(--line-margin-top);
+                  margin-bottom: var(--line-margin-bottom);
+                }
+
+                /* Estilos de la línea con movimiento pixel a pixel */
+                .hydra_gallery_art_card-item.active .category-divider {
+                  display: block;
+                  height: var(--line-height);
+                  width: var(--line-width);
+                  background: var(--line-color);
+                  box-shadow: 0 0 8px var(--line-glow);
+                  transform: translateX(var(--line-offset-x));
+                }
+                .hydra_gallery_art_card-item:not(.open) .category-divider-container {
+                  display: none;
+                }
+
+                /* Estilos y posición del texto con movimiento pixel a pixel */
+                .category-footer-text {
+                  font-size: var(--text-size);
+                  color: var(--text-color);
+                  font-weight: var(--text-weight);
+                  text-align: var(--text-align);
+                  margin-top: var(--text-margin-top);
+                  transform: translateX(var(--text-offset-x));
+                }
+              </style>
+
+              <div class="mini-gallery" id="skins-gallery" style="max-height: 256px; overflow-y: auto; padding-right: 6px; scrollbar-width: thin; scrollbar-color: hsla(200, 90%, 60%, 0.75) hsla(192, 56%, 9%, 0.5019607843137255);">
+                
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+                     
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">                     
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+
+              </div>
+
+              <div class="category-divider-container">
+                <div class="category-divider"></div>
+              </div>
+
+              <div class="category-footer-text">
+                Armor set (32 Models)
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Category III: Entity models -->
+
+           <div class="hydra_gallery_art_card-item open">
+            <button class="hydra_gallery_art_card-header" type="button">
+              <div class="hydra_gallery_art_card-title-group">
+                <img src="./hydra_material/category_thumbnails/entity_category.png" alt="Icon" class="hydra_gallery_art_card-icon">
+                <span>Entity & Mob models</span>
+              </div>
+              <span class="arrow">▼</span>
+            </button>
+            
+            <div class="hydra_gallery_art_card-content">
+              
+              <style>
+                /* ==========================================================
+                   PANEL DE CONFIGURACIÓN RÁPIDA (LÍNEA Y TEXTO)
+                   ========================================================== */
+                :root {
+                  /* --- CONFIGURACIÓN DE LA LÍNEA --- */
+                  --line-color: hsla(200, 90%, 60%, 0.75);         /* Color de la línea */
+                  --line-glow: hsla(168, 70%, 32%, 0.6); /* Color del brillo (neón) */
+                  --line-height: 1.5px;          /* Grosor de la línea */
+                  --line-width: 95%;           /* Largo de la línea (ej: 100%, 80%, 250px) */
+                  --line-margin-top: 10px;     /* Espacio arriba de la línea */
+                  --line-margin-bottom: 10px;   /* Espacio abajo de la línea */
+                  --line-align: center;        /* Posición horizontal general: center, flex-start, flex-end */
+                  --line-offset-x: 0px;        /* Mover línea píxel a píxel horizontalmente (ej: 5px, -10px) */
+
+                  /* --- CONFIGURACIÓN DEL TEXTO --- */
+                  --text-color: hsla(214, 20%, 69%, 1);       /* Color del texto */
+                  --text-size: 1.25rem;         /* Tamaño de la fuente (ej: 14px, 0.9rem) */
+                  --text-weight: 800;          /* Grosor de la fuente (400 normal, 600 negrita) */
+                  --text-margin-top: 4px;      /* Espacio superior del texto (distancia con la línea) */
+                  --text-align: left;          /* Posición horizontal general: left, center, right */
+                  --text-offset-x: 16px;        /* Mover texto píxel a píxel horizontalmente (ej: 12px, -5px) */
+                }
+
+                /* Personalización de la barra de scroll */
+                #skins-gallery::-webkit-scrollbar {
+                  width: 6px;
+                }
+                #skins-gallery::-webkit-scrollbar-track {
+                  background: hsla(192, 56%, 9%, 0.4);
+                  border-radius: 4px;
+                }
+                #skins-gallery::-webkit-scrollbar-thumb {
+                  background: hsla(200, 90%, 60%, 0.75);
+                  border-radius: 4px;
+                }
+                #skins-gallery::-webkit-scrollbar-thumb:hover {
+                  background: hsla(169, 70%, 41%, 1);
+                }
+
+                /* Contenedor flexible para alinear la línea horizontalmente */
+                .category-divider-container {
+                  display: flex;
+                  width: 100%;
+                  justify-content: var(--line-align);
+                  margin-top: var(--line-margin-top);
+                  margin-bottom: var(--line-margin-bottom);
+                }
+
+                /* Estilos de la línea con movimiento pixel a pixel */
+                .hydra_gallery_art_card-item.active .category-divider {
+                  display: block;
+                  height: var(--line-height);
+                  width: var(--line-width);
+                  background: var(--line-color);
+                  box-shadow: 0 0 8px var(--line-glow);
+                  transform: translateX(var(--line-offset-x));
+                }
+                .hydra_gallery_art_card-item:not(.open) .category-divider-container {
+                  display: none;
+                }
+
+                /* Estilos y posición del texto con movimiento pixel a pixel */
+                .category-footer-text {
+                  font-size: var(--text-size);
+                  color: var(--text-color);
+                  font-weight: var(--text-weight);
+                  text-align: var(--text-align);
+                  margin-top: var(--text-margin-top);
+                  transform: translateX(var(--text-offset-x));
+                }
+              </style>
+
+              <div class="mini-gallery" id="skins-gallery" style="max-height: 256px; overflow-y: auto; padding-right: 6px; scrollbar-width: thin; scrollbar-color: hsla(200, 90%, 60%, 0.75) hsla(192, 56%, 9%, 0.5019607843137255);">
+                
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+                     
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">                     
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+
+              </div>
+
+              <div class="category-divider-container">
+                <div class="category-divider"></div>
+              </div>
+
+              <div class="category-footer-text">
+                Entity & Mob (32 Models)
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Category IV: Block models -->
+
+           <div class="hydra_gallery_art_card-item open">
+            <button class="hydra_gallery_art_card-header" type="button">
+              <div class="hydra_gallery_art_card-title-group">
+                <img src="./hydra_material/category_thumbnails/blocks_category.png" alt="Icon" class="hydra_gallery_art_card-icon">
+                <span>3D\2D Block models</span>
+              </div>
+              <span class="arrow">▼</span>
+            </button>
+            
+            <div class="hydra_gallery_art_card-content">
+              
+              <style>
+                /* ==========================================================
+                   PANEL DE CONFIGURACIÓN RÁPIDA (LÍNEA Y TEXTO)
+                   ========================================================== */
+                :root {
+                  /* --- CONFIGURACIÓN DE LA LÍNEA --- */
+                  --line-color: hsla(200, 90%, 60%, 0.75);         /* Color de la línea */
+                  --line-glow: hsla(168, 70%, 32%, 0.6); /* Color del brillo (neón) */
+                  --line-height: 1.5px;          /* Grosor de la línea */
+                  --line-width: 95%;           /* Largo de la línea (ej: 100%, 80%, 250px) */
+                  --line-margin-top: 10px;     /* Espacio arriba de la línea */
+                  --line-margin-bottom: 10px;   /* Espacio abajo de la línea */
+                  --line-align: center;        /* Posición horizontal general: center, flex-start, flex-end */
+                  --line-offset-x: 0px;        /* Mover línea píxel a píxel horizontalmente (ej: 5px, -10px) */
+
+                  /* --- CONFIGURACIÓN DEL TEXTO --- */
+                  --text-color: hsla(214, 20%, 69%, 1);       /* Color del texto */
+                  --text-size: 1.25rem;         /* Tamaño de la fuente (ej: 14px, 0.9rem) */
+                  --text-weight: 800;          /* Grosor de la fuente (400 normal, 600 negrita) */
+                  --text-margin-top: 4px;      /* Espacio superior del texto (distancia con la línea) */
+                  --text-align: left;          /* Posición horizontal general: left, center, right */
+                  --text-offset-x: 16px;        /* Mover texto píxel a píxel horizontalmente (ej: 12px, -5px) */
+                }
+
+                /* Personalización de la barra de scroll */
+                #skins-gallery::-webkit-scrollbar {
+                  width: 6px;
+                }
+                #skins-gallery::-webkit-scrollbar-track {
+                  background: hsla(192, 56%, 9%, 0.4);
+                  border-radius: 4px;
+                }
+                #skins-gallery::-webkit-scrollbar-thumb {
+                  background: hsla(200, 90%, 60%, 0.75);
+                  border-radius: 4px;
+                }
+                #skins-gallery::-webkit-scrollbar-thumb:hover {
+                  background: hsla(169, 70%, 41%, 1);
+                }
+
+                /* Contenedor flexible para alinear la línea horizontalmente */
+                .category-divider-container {
+                  display: flex;
+                  width: 100%;
+                  justify-content: var(--line-align);
+                  margin-top: var(--line-margin-top);
+                  margin-bottom: var(--line-margin-bottom);
+                }
+
+                /* Estilos de la línea con movimiento pixel a pixel */
+                .hydra_gallery_art_card-item.active .category-divider {
+                  display: block;
+                  height: var(--line-height);
+                  width: var(--line-width);
+                  background: var(--line-color);
+                  box-shadow: 0 0 8px var(--line-glow);
+                  transform: translateX(var(--line-offset-x));
+                }
+                .hydra_gallery_art_card-item:not(.open) .category-divider-container {
+                  display: none;
+                }
+
+                /* Estilos y posición del texto con movimiento pixel a pixel */
+                .category-footer-text {
+                  font-size: var(--text-size);
+                  color: var(--text-color);
+                  font-weight: var(--text-weight);
+                  text-align: var(--text-align);
+                  margin-top: var(--text-margin-top);
+                  transform: translateX(var(--text-offset-x));
+                }
+              </style>
+
+              <div class="mini-gallery" id="skins-gallery" style="max-height: 256px; overflow-y: auto; padding-right: 6px; scrollbar-width: thin; scrollbar-color: hsla(200, 90%, 60%, 0.75) hsla(192, 56%, 9%, 0.5);">
+                
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+                     
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">                     
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+
+              </div>
+
+              <div class="category-divider-container">
+                <div class="category-divider"></div>
+              </div>
+
+              <div class="category-footer-text">
+                Weapons & Tools (32 Models)
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Category V: Cosmetics -->
+
+           <div class="hydra_gallery_art_card-item open">
+            <button class="hydra_gallery_art_card-header" type="button">
+              <div class="hydra_gallery_art_card-title-group">
+                <img src="./hydra_material/category_thumbnails/cosmetic_category.png" alt="Icon" class="hydra_gallery_art_card-icon">
+                <span>Cosmetics models</span>
+              </div>
+              <span class="arrow">▼</span>
+            </button>
+            
+            <div class="hydra_gallery_art_card-content">
+              
+              <style>
+                /* ==========================================================
+                   PANEL DE CONFIGURACIÓN RÁPIDA (LÍNEA Y TEXTO)
+                   ========================================================== */
+:root {
+  /* --- CONFIGURACIÓN DE LA LÍNEA --- */
+  --line-color: hsla(200, 90%, 60%, 0.75);         /* Color de la línea */
+  --line-glow: hsla(168, 70%, 32%, 0.6); /* Color del brillo (neón) */
+  --line-height: 1.5px;          /* Grosor de la línea */
+  --line-width: 95%;           /* Largo de la línea (ej: 100%, 80%, 250px) */
+  --line-margin-top: 10px;     /* Espacio arriba de la línea */
+  --line-margin-bottom: 10px;   /* Espacio abajo de la línea */
+  --line-align: center;        /* Posición horizontal general: center, flex-start, flex-end */
+  --line-offset-x: 0px;        /* Mover línea píxel a píxel horizontalmente (ej: 5px, -10px) */
+
+  /* --- CONFIGURACIÓN DEL TEXTO --- */
+  --text-color: hsla(214, 20%, 69%, 1);       /* Color del texto */
+  --text-size: 1.25rem;         /* Tamaño de la fuente (ej: 14px, 0.9rem) */
+  --text-weight: 800;          /* Grosor de la fuente (400 normal, 600 negrita) */
+  --text-margin-top: 4px;      /* Espacio superior del texto (distancia con la línea) */
+  --text-align: left;          /* Posición horizontal general: left, center, right */
+  --text-offset-x: 16px;        /* Mover texto píxel a píxel horizontalmente (ej: 12px, -5px) */
+}
+
+/* Personalización de la barra de scroll */
+#skins-gallery::-webkit-scrollbar {
+  width: 6px;
+}
+#skins-gallery::-webkit-scrollbar-track {
+  background: hsla(192, 56%, 9%, 0.4);
+  border-radius: 4px;
+}
+#skins-gallery::-webkit-scrollbar-thumb {
+  background: hsla(200, 90%, 60%, 0.75);
+  border-radius: 4px;
+}
+#skins-gallery::-webkit-scrollbar-thumb:hover {
+  background: hsla(169, 70%, 41%, 1);
+}
+
+/* Contenedor flexible para alinear la línea horizontalmente */
+.category-divider-container {
+  display: flex;
+  width: 100%;
+  justify-content: var(--line-align);
+  margin-top: var(--line-margin-top);
+  margin-bottom: var(--line-margin-bottom);
+}
+
+/* CORREGIDO: Cambiado .open por .active para sincronizar con el acordeón */
+.hydra_gallery_art_card-item.active .category-divider {
+  display: block;
+  height: var(--line-height);
+  width: var(--line-width);
+  background: var(--line-color);
+  box-shadow: 0 0 8px var(--line-glow);
+  transform: translateX(var(--line-offset-x));
+}
+
+.hydra_gallery_art_card-item:not(.active) .category-divider-container {
+  display: none;
+}
+
+/* Estilos y posición del texto con movimiento pixel a pixel */
+.category-footer-text {
+  font-size: var(--text-size);
+  color: var(--text-color);
+  font-weight: var(--text-weight);
+  text-align: var(--text-align);
+  margin-top: var(--text-margin-top);
+  transform: translateX(var(--text-offset-x));
+}
+
+                /* Personalización de la barra de scroll */
+                #skins-gallery::-webkit-scrollbar {
+                  width: 6px;
+                }
+                #skins-gallery::-webkit-scrollbar-track {
+                  background: hsla(192, 56%, 9%, 0.4);
+                  border-radius: 4px;
+                }
+                #skins-gallery::-webkit-scrollbar-thumb {
+                  background: hsla(200, 90%, 60%, 0.75);
+                  border-radius: 4px;
+                }
+                #skins-gallery::-webkit-scrollbar-thumb:hover {
+                  background: hsla(169, 70%, 41%, 1);
+                }
+
+                /* Contenedor flexible para alinear la línea horizontalmente */
+                .category-divider-container {
+                  display: flex;
+                  width: 100%;
+                  justify-content: var(--line-align);
+                  margin-top: var(--line-margin-top);
+                  margin-bottom: var(--line-margin-bottom);
+                }
+
+                /* Estilos de la línea con movimiento pixel a pixel */
+                .hydra_gallery_art_card-item.active .category-divider {
+                  display: block;
+                  height: var(--line-height);
+                  width: var(--line-width);
+                  background: var(--line-color);
+                  box-shadow: 0 0 8px var(--line-glow);
+                  transform: translateX(var(--line-offset-x));
+                }
+                .hydra_gallery_art_card-item:not(.open) .category-divider-container {
+                  display: none;
+                }
+
+                /* Estilos y posición del texto con movimiento pixel a pixel */
+                .category-footer-text {
+                  font-size: var(--text-size);
+                  color: var(--text-color);
+                  font-weight: var(--text-weight);
+                  text-align: var(--text-align);
+                  margin-top: var(--text-margin-top);
+                  transform: translateX(var(--text-offset-x));
+                }
+              </style>
+
+              <div class="mini-gallery" id="skins-gallery" style="max-height: 256px; overflow-y: auto; padding-right: 6px; scrollbar-width: thin; scrollbar-color: hsla(200, 90%, 60%, 0.75) hsla(192, 56%, 9%, 0.5019607843137255);">
+                
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+                     
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">                     
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool I | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Sword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool II | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Katana">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool III | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Greatsword">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool IV | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Mace">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool V | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Spear">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VI | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Hammer">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Axe">
+
+                <img src="./hydra_material/placeholders/blockbench_placeholder.png" 
+                     alt="Weapon & Tool VIII | " 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/placeholders/blockbench_placeholder.mp4" 
+                     data-title="Pure Diamond Pickaxe">
+
+              </div>
+
+              <div class="category-divider-container">
+                <div class="category-divider"></div>
+              </div>
+
+              <div class="category-footer-text">
+                Cosmetics (32 Models)
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Category VI: Skins -->
+
+          <div class="hydra_gallery_art_card-item">
+            <button class="hydra_gallery_art_card-header" type="button">
+              <div class="hydra_gallery_art_card-title-group">
+                <img src="./hydra_material/category_thumbnails/skins_category.png" alt="Icon" class="hydra_gallery_art_card-icon">
+                <span>Skins</span>
+              </div>
+              <span class="arrow">▼</span>
+            </button>
+  
+            <div class="hydra_gallery_art_card-content">
+              <div class="mini-gallery" id="skins-gallery">
+                <!-- Elemento 1 -->
+                <img src="./hydra_material/artwork/artwork_skins/png/skin_vulak_light.png" 
+                     alt="Skin I | Vulak light" 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_skins/mp4/skin_vulak_light.mp4" 
+                     data-title="Skin #1 - Animación Principal">
+
+                <!-- Elemento 2 -->
+                <img src="./hydra_material/artwork/artwork_skins/png/skin_vulak_dark.png" 
+                     alt="Skin II | Vulak dark" 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_skins/mp4/skin_vulak_dark.mp4" 
+                     data-title="Skin #2 - Animación de Ataque">
+
+                <!-- Elemento 3 -->
+                <img src="./hydra_material/artwork/artwork_skins/png/skin_REDACTED.png" 
+                     alt="Skin III | REDACTED" 
+                     class="hydra_gallery_art_card-thumb" 
+                     data-video="./hydra_material/artwork/artwork_skins/mp4/skin_REDACTED.mp4" 
+                     data-title="Skin #3 - Animación de Caminata">
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- Cierra .categories-menu -->
+
+        <!-- Columna Derecha: Imagen Destacada (o reproductor de video) -->
+        <div class="hydra_gallery_art_card-preview" style="display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding-bottom: 30px;">
+          
+          <!-- Contenedor de la línea azul y textos de referencia -->
+          <div style="width: 100%; display: flex; flex-direction: column; align-items: center; margin: 0px 0px -980px 0px; z-index: 2;">
+            <!-- Línea con color directo y brillo a juego -->
+            <div class="hydra-gallery-divider"></div>
+            
+            <div class="hydra-gallery-text-block">
+          <div>This is my artwork gallery, here you can see all the types of models I've created.</div>
+          <div>Weapon/Tools, Armor sets, Entities, 2D/3D Blocks, Cosmetics, Minecraft skins</div>
+          <div>You've probably seen some of these models in my projects or in another projects</div>
+          <div>Also you can view this gallery and use it as a reference for your art or to commission me!!</div>
+          <div> - </div>
+          <div>Atte - VulakDeRex</div>
+        </div>
+          </div>
+
+          <!-- Imagen de previsualización -->
+          <img id="preview-img" src="./hydra_material/void.png" alt="Preview" style="max-width: 100%;">
+        </div>
+
+      </div> <!-- Cierra .showcase-layout -->
+
+      <!-- Segundo Visor 3D Interactivo debajo del Showcase -->
+      <div class="hydra_gallery_art_card-wrapper" style="margin: 60px auto 40px auto;">
+        <div class="section-heading" style="margin-bottom: 16px;">
+        </div>
+        <div id="hydra_gallery_art_canvas-3d-container" class="tilt-card" style="position: relative; margin: -1000px -200px 0px; border: 0px solid var(--border); border-radius: 24px; display: flex; align-items: center; justify-content: center;">
+          <div id="hydra_gallery_art_model-loader" style="position: absolute; color: var(--muted); font-weight: 600; letter-spacing: 1px; pointer-events: none;">Loading interactive model...</div>
+        </div>
+      </div>
+
+    </section>
+
+<!-- /* 
+==========================================================
+TOOLS
+========================================================== 
+*/ -->
+
+<section id="tools" class="section reveal">
+  <p class="section-tag">Tools</p>
+  <h2>Tools I use in my works</h2>
+    <p class="section-intro">
+    These are the various tools I use to make my models/works.
+  </p>
+  <div class="hydra-grid">
+    
+    <div id="hydra_tools_info_card_blockbench" class="hydra_card">
+      <span>01 | Models</span>
+      <h3>Blockbech</h3>
+      <p>With blockbench i can do all type of models for all platforms Entities, armors, weapons, tools, cosmetics, and renders!!.</p>
+    </div>
+
+    <div id="hydra_tools_info_card_pixel_studio" class="hydra_card">
+      <span>02 | Pixel art</span>
+      <h3>Pixel studio</h3>
+      <p>With Pixel Studio I can make 16x items, 2D blocks, boss bars, and more.</p>
+    </div>
+
+    <div id="hydra_tools_info_card_custom_ui" class="hydra_card">
+      <span>03 | Showcase</span>
+      <h3>Photoshop</h3>
+      <p>To edit thmnails, titles, images and showcases.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- /* 
+==========================================================
+PERSONAL ADDONS
+========================================================== 
+*/ -->
+
+    <section id="projects" class="section reveal">
+      <div class="section-heading">
+        <div>
+          <p class="section-tag">Personal Work</p>
+          <h2>Personal add-ons & textures</h2>
+            <p class="section-intro">
+    These are some add-ons & texture packs I made available for free download! They are available on various platforms and translated into several languages.
+  </p>
+        </div>
+
+      </div>
+
+<div class="projects-grid">
+        <a class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/system-dynamic-lights" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="Dynamic Light addon cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+
+        <a class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/definitive-tree-capitator-addon" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="Definitive Tree Capitator addon cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+
+        <a class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/torch-offhand-addon" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="Torch Offhand addon cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+
+        <a class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/stonetombs-addon" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="StoneTombs addon cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+
+        <a class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/blockarmor-addon" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="Block Armor addon cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+
+        <a class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/mininghammers-addon" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="Hammer Time addon cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+
+        <a class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/definitive-ore-miner-addon" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="Ore Miner addon cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+
+        <a class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/systemcrossbow" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="System Crossbow addon cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+        
+        <a class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/life-increase-addon" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="Life Increase addon cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+        
+        <a class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/expansive-ores-addon" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="Expansive Ores addon cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+
+        <!-- Tarjetas adicionales (11 a 14) -->
+        <a class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="Project 11 cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+
+        <a class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="Project 12 cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+
+        <a class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="Project 13 cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+
+        <a class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/curseforge_placeholder.png" alt="Project 14 cover">
+          <h3>Project I</h3>
+          <p>By: Vulak</p>
+          <span>Modeling</span>
+        </a>
+      </div>
+    </section>
+
+<!-- /* 
+==========================================================
+PERSONAL PLUGINS 
+========================================================== 
+*/ -->
+
+<section id="plugins" class="section reveal">
+  <div class="section-heading">
+    <div>
+      <p class="section-tag">Personal Work</p>
+      <h2>Personal plugins</h2>
+    </div>
+  </div>
+  <p class="section-intro">
+    All the projects I contribute to with my work, from add-ons, mods, and textures, both as the main modeler and with small contributions.
+  </p>
+
+  <div class="horizontal-slider" style="display: flex; overflow-x: auto; gap: 24px; margin-top: 24px; padding-top: 20px; padding-bottom: 16px; scrollbar-width: thin; scrollbar-color: hsla(200, 90%, 60%, 0.75) hsla(220, 60%, 30%, 0.5);">
+    
+    <a id="hydra_personal_plugins_card_server_mechanics" class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/placeholders/mcmodels_placeholder.png" alt="Custom Java Plugin 1 cover" loading="lazy">
+      <h3>Custom Java Plugin 1</h3>
+      <p>High performance server plugin configuration and custom blocks integration.</p>
+      <span>Java • Server • Mechanics</span>
+    </a>
+
+    <a id="hydra_personal_plugins_card_item_management" class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/placeholders/mcmodels_placeholder.png" alt="Custom Java Plugin 2 cover" loading="lazy">
+      <h3>Custom Java Plugin 2</h3>
+      <p>Advanced item management system with custom model data support.</p>
+      <span>Java • Items • Mechanics</span>
+    </a>
+
+    <a id="hydra_personal_plugins_card_gui_optimization" class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/placeholders/mcmodels_placeholder.png" alt="Custom Java Plugin 3 cover" loading="lazy">
+      <h3>Custom Java Plugin 3</h3>
+      <p>Optimized GUI menu framework designed for smooth server interactions.</p>
+      <span>Java • UI • Optimization</span>
+    </a>
+
+    <a id="hydra_personal_plugins_card_economy_survival" class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/placeholders/mcmodels_placeholder.png" alt="Custom Java Plugin 4 cover" loading="lazy">
+      <h3>Custom Java Plugin 4</h3>
+      <p>Dynamic economy and player shop configuration for survival servers.</p>
+      <span>Java • Economy • Survival</span>
+    </a>
+
+    <a id="hydra_personal_plugins_card_chat_utility" class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/placeholders/mcmodels_placeholder.png" alt="Custom Java Plugin 5 cover" loading="lazy">
+      <h3>Custom Java Plugin 5</h3>
+      <p>Custom rank and prefix management tool with lightweight database queries.</p>
+      <span>Java • Chat • Utility</span>
+    </a>
+
+    <a id="hydra_personal_plugins_card_events_automation" class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/placeholders/mcmodels_placeholder.png" alt="Custom Java Plugin 6 cover" loading="lazy">
+      <h3>Custom Java Plugin 6</h3>
+      <p>Automated event scheduler and reward system for active community engagement.</p>
+      <span>Java • Events • Automation</span>
+    </a>
+
+    <a id="hydra_personal_plugins_card_security_protection" class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/placeholders/mcmodels_placeholder.png" alt="Custom Java Plugin 7 cover" loading="lazy">
+      <h3>Custom Java Plugin 7</h3>
+      <p>Comprehensive world protection and anti-grief utility suite for administrators.</p>
+      <span>Java • Security • Protection</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- /* 
+==========================================================
+MARKETPLACE CONTRIBUTIONS
+========================================================== 
+*/ -->
+
+<section id="marketplace" class="section reveal">
+      <div class="section-heading">
+        <div>
+          <p class="section-tag">Contribution work</p>
+          <h2>Marketplace contributions</h2>
+        </div>
+      </div> 
+      <p class="section-intro">
+        These are my personal product asset plugins for Minecraft Java that I created for the McModels store, you can buy them here.
+      </p>
+
+      <div class="horizontal-slider" style="display: flex; overflow-x: auto; gap: 24px; margin-top: 24px; padding-top: 20px; padding-bottom: 16px; scrollbar-width: thin; scrollbar-color: hsla(200, 90%, 60%, 0.75) hsla(192, 56%, 9%, 0.5);">
+        
+        <!-- I. Eternal caves -->
+
+        <a class="project-card tilt-card" href="https://www.minecraft.net/es-es/marketplace/pdp/honeyfrost/boss-expansion/70c45b79-0478-42dc-bdbf-e7feadd4dba1" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/thumbnails/marketplace_contributions/eternal_caves_thumbnail.png" alt="">
+          <h3>Eternal caves</h3>
+          <p>Eternal caves.</p>
+          <span>Work contribution: Modeler (Armor sets)</span>
+        </a>
+
+        <!-- II. Ore armor expansion -->
+       
+        <a class="project-card tilt-card" href="https://www.minecraft.net/es-es/marketplace/pdp/honeyfrost/mythic-mobs/0d801c98-d04c-4207-b000-2500d1206d1b" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/thumbnails/marketplace_contributions/ore_armor_expansion_thumbnail.png" alt="">
+          <h3>Ore armor expansion</h3>
+          <p>Ore armor expansion.</p>
+          <span>Work contribution: Modeler (Armor sets)</span>
+        </a>
+
+        <!-- III. Legendary armors -->
+
+        <a class="project-card tilt-card" href="https://www.minecraft.net/es-es/marketplace/pdp/honeyfrost/titanium-ore/5d1744d3-9227-4174-92db-26f17abce5b6" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/thumbnails/marketplace_contributions/legendary_armors_thumbnail.png" alt="">
+          <h3>Legendary armors</h3>
+          <p>Legendary armors.</p>
+          <span>Work contribution: Modeler (Armor sets)</span>
+        </a>
+
+        <!-- IV. - -->
+
+        <a class="project-card tilt-card" href="https://www.minecraft.net" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/marketplace_placeholder.png" alt="Titanium Ore Marketplace project cover">
+          <h3>Coming soon</h3>
+          <p>-</p>
+          <span>Work contribution: -</span>
+        </a>
+
+      </div>
+</section>
+
+<!-- /* 
+==========================================================
+MCMODELS CONTRIBUTIONS
+========================================================== 
+*/ -->
+
+<section id="mcmodels" class="section reveal">
+      <div class="section-heading">
+        <div>
+          <p class="section-tag">Contribution work</p>
+          <h2>McModels contributions</h2>
+        </div>
+      </div> 
+      <p class="section-intro">
+        Some asset plugins from the McModels store work for Java servers that I contributed to with my work as the main modeler or with a small contribution, you can go and buy them here!!
+      </p>
+
+      <div class="horizontal-slider" id="mcmodels-slider" style="display: flex; overflow-x: auto; gap: 24px; margin-top: 24px; padding-top: 20px; padding-bottom: 16px; scrollbar-width: thin; scrollbar-color: hsla(200, 90%, 60%, 0.75) hsla(192, 56%, 9%, 0.5);">
+
+        <!-- II. Dark emerald -->
+        <a id="hydra_mcmodels_contributions_card_dark_emerald" class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/thumbnails/mcmodels_contributions/dark_emerald_thumbnail.png" alt="Dark emerald asset">
+          <h3>Dark emerald asset plugin</h3>
+          <p>High quality weapons ready for Java & Bedrock integration.</p>
+          <span>Work contribution: Main modeler</span>
+        </a>
+
+        <!-- III. Aqua gem -->
+        <a id="hydra_mcmodels_contributions_card_aqua_gem" class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/thumbnails/mcmodels_contributions/gilded_tungsten_thumbnail.png" alt="Aqua gem asset">
+          <h3>Aqua gem asset plugin</h3>
+          <p>High quality weapons ready for Java & Bedrock integration.</p>
+          <span>Work contribution: Main modeler</span>
+        </a>
+
+        <!-- IV. Gilded tungsten -->
+        <a id="hydra_mcmodels_contributions_card_gilded_tungsten" class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/thumbnails/mcmodels_contributions/aqua_weaponry_thumbnail.png" alt="Gilded tungsten asset">
+          <h3>Gilded tungsten asset plugin</h3>
+          <p>High quality weapons ready for Java & Bedrock integration.</p>
+          <span>Work contribution: Modeler & Texturer</span>
+        </a>
+
+        <!-- I. Gothic weaponry / Coming soon -->
+        <a id="hydra_mcmodels_contributions_card_coming_soon" class="project-card tilt-card" href="#" target="_blank" rel="noopener noreferrer">
+          <img class="portada" src="./hydra_material/placeholders/mcmodels_placeholder.png" alt="Coming soon">
+          <h3>Coming soon</h3>
+          <p>-</p>
+          <span>Work contribution: -</span>
+        </a>
+
+      </div>
+</section>
+
+<!-- /* 
+==========================================================
+OTHER CONTRBUTIONS
+========================================================== 
+*/ -->
+
+<section id="other-contributions" class="section reveal">
+  <div class="section-heading">
+    <div>
+      <p class="section-tag">Contribution work</p>
+      <h2>Other contributions</h2>
+    </div>
+  </div> 
+  <p class="section-intro">
+    All the projects I contribute to with my work, from add-ons, mods, and textures, both as the main modeler and with small contributions.
+  </p>
+
+  <div class="horizontal-slider" style="display: flex; overflow-x: auto; gap: 24px; margin-top: 24px; padding-top: 20px; padding-bottom: 16px; scrollbar-width: thin; scrollbar-color: hsla(200, 90%, 60%, 0.75) hsla(192, 56%, 9%, 0.5);">
+    
+    <!-- I. Archaism talismans -->
+
+    <a id="hydra_other_projects_card_archaism_talismans" class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/archaism-talismans-v2" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/thumbnails/project_contributions/archaism_talismans_thumbnail.png" alt="Archaism talismans addon project cover" loading="lazy">
+      <h3>Archaism talismans addon</h3>
+      <p>High quality weapons ready for Java & Bedrock integration.</p>
+      <span>Work contribution: Modeler & Texturer</span>
+    </a>
+    
+    <!-- II. Goety mod -->
+
+    <a id="hydra_other_projects_card_goety_mod" class="project-card tilt-card" href="https://www.curseforge.com/minecraft/mc-mods/goety" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/thumbnails/project_contributions/goety-mod_thumbnail.png" alt="Goety mod project cover" loading="lazy">
+      <h3>Goety - The dark arts mod</h3>
+      <p>High quality weapons ready for Java & Bedrock integration.</p>
+      <span>Work contribution: Modeler & Texturer</span>
+    </a>
+    
+    <!-- III. System wyverns -->
+
+    <a id="hydra_other_projects_card_system_wyverns" class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/system-wyverns-addon" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/thumbnails/project_contributions/system_wyverns_thumbnail.png" alt="System wyverns addon project cover" loading="lazy">
+      <h3>System wyverns addon</h3>
+      <p>High quality weapons ready for Java & Bedrock integration.</p>
+      <span>Work contribution: Modeler & Texturer</span>
+    </a>
+    
+    <!-- IV. System enchantments -->
+
+    <a id="hydra_other_projects_card_system_enchantments" class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/system-enchantements-addon" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/thumbnails/project_contributions/system_enchantements_thumbnail.png" alt="System enchantments addon project cover" loading="lazy">
+      <h3>System enchantments addon</h3>
+      <p>High quality weapons ready for Java & Bedrock integration.</p>
+      <span>Work contribution: Main modeler</span>
+    </a>
+    
+    <!-- V. System shields -->
+
+    <a id="hydra_other_projects_card_system_shields" class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/system-shields" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/thumbnails/project_contributions/system_shield_thumbnail.png" alt="System shields addon project cover" loading="lazy">
+      <h3>System shields addon</h3>
+      <p>High quality weapons ready for Java & Bedrock integration.</p>
+      <span>Work contribution: Main modeler</span>
+    </a>
+    
+    <!-- VI. Archaism trinkets -->
+
+    <a id="hydra_other_projects_card_archaism_trinkets" class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/archaism-trinkets-2" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/thumbnails/project_contributions/archaism_trinkets_thumbnail.png" alt="Archaism trinkets addon project cover" loading="lazy">
+      <h3>Archaism trinkets addon</h3>
+      <p>High quality weapons ready for Java & Bedrock integration.</p>
+      <span>Work contribution: Modeler & Texturer</span>
+    </a>
+    
+    <!-- VII. System hydra -->
+
+    <a id="hydra_other_projects_card_system_hydra" class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/system-hydra-addon" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/thumbnails/project_contributions/system_hydra_thumbnail.png" alt="System hydra addon project cover" loading="lazy">
+      <h3>System hydra addon</h3>
+      <p>High quality weapons ready for Java & Bedrock integration.</p>
+      <span>Work contribution: Modeler & Texturer</span>
+    </a>
+
+    <!-- VIII. Rise of the wyverns -->
+
+    <a id="hydra_other_projects_card_rise_of_the_wyverns" class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/rise-of-the-wyverns" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/thumbnails/project_contributions/rise_of_the_wyverns_thumbnail.png" alt="Rise of the wyverns addon project cover" loading="lazy">
+      <h3>Rise of the wyverns addon</h3>
+      <p>High quality weapons ready for Java & Bedrock integration.</p>
+      <span>Work contribution: Modeler & Texturer</span>
+    </a>
+    
+    <!-- IX. System minotaur -->
+
+    <a id="hydra_other_projects_card_system_minotaur" class="project-card tilt-card" href="https://www.curseforge.com/minecraft-bedrock/addons/system-minotaur" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/thumbnails/project_contributions/system_minotaur_thumbnail.png" alt="System minotaur addon project cover" loading="lazy">
+      <h3>System minotaur addon</h3>
+      <p>High quality weapons ready for Java & Bedrock integration.</p>
+      <span>Work contribution: Modeler & Texturer</span>
+    </a>
+    
+    <!-- X. The beginning and heaven -->
+
+    <a id="hydra_other_projects_card_the_beginning_and_heaven" class="project-card tilt-card" href="https://www.curseforge.com/minecraft/mc-mods/the-beginning-and-heaven" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/thumbnails/project_contributions/the-beginning-and-heaven_thumbnail.png" alt="The beginning and heaven mod project cover" loading="lazy">
+      <h3>The beginning and heaven mod</h3>
+      <p>High quality weapons ready for Java & Bedrock integration.</p>
+      <span>Work contribution: Modeler</span>
+    </a>
+
+    <!-- XI. Oresplus  -->
+
+    <a id="hydra_other_projects_card_oresplus" class="project-card tilt-card" href="https://www.curseforge.com/minecraft/mc-mods/the-beginning-and-heaven" target="_blank" rel="noopener noreferrer">
+      <img class="portada" src="./hydra_material/thumbnails/project_contributions/oresplus_thumbnail.png" alt="The beginning and heaven mod project cover" loading="lazy">
+      <h3>Oresplus addon</h3>
+      <p>High quality weapons ready for Java & Bedrock integration.</p>
+      <span>Work contribution: Models</span>
+    </a>    
+
+  </div>
+</section>
+
+<!-- /* 
+==========================================================
+WORKFLOW
+========================================================== 
+*/ -->
+
+    <section id="hydra_workflow_section" class="section reveal">
+      <p class="section-tag">Workflow</p>
+      <h2>How I usually do my models</h2>
+    
+      <div class="timeline">
+        <div id="hydra_workflow_card_concept">
+          <span></span>
+          <h3>Idea & Concept definition</h3>
+          <p>You give me the idea, the format, and what it's for, and I'll adjust it to your needs as much as possible.</p>
+        </div>
+    
+        <div id="hydra_workflow_card_sketch">
+          <span></span>
+          <h3>Model sketch</h3>
+          <p>Once the idea is defined, I'll make you a simple sketch of the model and its main structure, and you can tell me what you think.</p>
+        </div>
+
+        <div id="hydra_workflow_card_details">
+          <span></span>
+          <h3>Final details</h3>
+          <p>Once you give me your feedback, I'll finalize the details and you'll have your model ready to add to your project.</p>
+        </div>
+      </div>
+    </section>
+    
+<!-- /* 
+==========================================================
+CONTACT ME
+========================================================== 
+*/ -->
+
+    <section id="contact" class="section contact reveal">
+      <p class="section-tag">Contact me</p>
+      <h2>Tell me what you have in mind.</h2>
+
+      <p>
+        I'm open to bringing the ideas from your mind to your world, or even beyond.
+      </p>
+
+      <div class="hydra_contact_card_links_container">
+
+        <!-- 1. Discord -->
+
+        <a href="https://discord.gg/2RfPTP6ZbB" target="_blank" rel="noopener noreferrer" class="hydra_contact_card_single_link hydra_contact_card_platform_discord">
+          <span class="hydra_contact_card_icon_wrapper">
+            <img src="./hydra_material/media_pixelart_logos/discord_logo.png" alt="Discord icon" class="hydra_contact_card_icon_img">
+          </span>
+          <span class="hydra_contact_card_label_text">Discord</span>
+        </a>
+
+        <!-- 2. Ko-fi -->
+
+        <a href="https://ko-fi.com/vulak" target="_blank" rel="noopener noreferrer" class="hydra_contact_card_single_link hydra_contact_card_platform_kofi">
+          <span class="hydra_contact_card_icon_wrapper">
+            <img src="./hydra_material/media_pixelart_logos/kofi_logo.png" alt="Ko-fi icon" class="hydra_contact_card_icon_img">
+          </span>
+          <span class="hydra_contact_card_label_text">Kofi</span>
+        </a>
+
+        <!-- 3. YouTube -->
+
+        <a href="https://youtube.com/@theoverhydra?si=Sbo-7hKdyQ-p3V1y" target="_blank" rel="noopener noreferrer" class="hydra_contact_card_single_link hydra_contact_card_platform_youtube">
+          <span class="hydra_contact_card_icon_wrapper">
+            <img src="./hydra_material/media_pixelart_logos/youtube_logo.png" alt="YouTube icon" class="hydra_contact_card_icon_img">
+          </span>
+          <span class="hydra_contact_card_label_text">Youtube</span>
+        </a>
+
+        <!-- 4. Email -->
+
+        <a href="mailto:vulakderex@protonmail.com" target="_blank" rel="noopener noreferrer" class="hydra_contact_card_single_link hydra_contact_card_platform_email">
+          <span class="hydra_contact_card_icon_wrapper">
+            <img src="./hydra_material/media_pixelart_logos/email_logo.png" alt="Email icon" class="hydra_contact_card_icon_img">
+          </span>
+          <span class="hydra_contact_card_label_text">Email</span>
+        </a>
+
+        <!-- 5. CurseForge -->
+
+        <a href="https://www.curseforge.com/members/hydrateam/projects" target="_blank" rel="noopener noreferrer" class="hydra_contact_card_single_link hydra_contact_card_platform_curseforge">
+          <span class="hydra_contact_card_icon_wrapper">
+            <img src="./hydra_material/media_pixelart_logos/curseforge_logo.png" alt="CurseForge icon" class="hydra_contact_card_icon_img">
+          </span>
+          <span class="hydra_contact_card_label_text">Curseforge</span>
+        </a>
+
+        <!-- 6. Pinterest -->
+
+        <a href="https://pin.it/5HLH7sydX" target="_blank" rel="noopener noreferrer" class="hydra_contact_card_single_link hydra_contact_card_platform_pinterest">
+          <span class="hydra_contact_card_icon_wrapper">
+            <img src="./hydra_material/media_pixelart_logos/pinterest_logo.png" alt="Pinterest icon" class="hydra_contact_card_icon_img">
+          </span>
+          <span class="hydra_contact_card_label_text">Pinterest</span>
+        </a>
+
+        <!-- 7. Patreon -->
+
+        <a href="https://www.patreon.com/user?u=225719252&utm_campaign=creatorshare_fan" target="_blank" rel="noopener noreferrer" class="hydra_contact_card_single_link hydra_contact_card_platform_patreon">
+          <span class="hydra_contact_card_icon_wrapper">
+            <img src="./hydra_material/media_pixelart_logos/patreon_logo.png" alt="Patreon icon" class="hydra_contact_card_icon_img">
+          </span>
+          <span class="hydra_contact_card_label_text">Patreon</span>
+        </a>
+      </div>
+    </section>
+
+<!-- /* 
+==========================================================
+FINAL
+========================================================== 
+*/ -->
+
+  <footer>
+    <p>© 2026 Vulak. Minecraft/Blockbench artist.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
