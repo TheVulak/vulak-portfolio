@@ -3169,7 +3169,67 @@ body.js-enabled .reveal.visible {
 
 
   /* --- 2. SECCIÓN HYDRA TEAM (Centrada) --- */
+.section.hydra-team-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 30px 16px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;    /* Centra la sección padre */
+  }
 
+  .hydra-team-content-wrapper {
+    width: 100% !important;
+    /* Se adapta fluidamente: ocupa el 100% en móviles pero respeta un tope máximo de 600px en pantallas más grandes */
+    max-width: min(600px, 100%) !important; 
+    padding: 0 !important;
+    margin-left: auto !important;      /* Centrado automático izquierdo */
+    margin-right: auto !important;     /* Centrado automático derecho */
+    gap: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;    /* Centra el contenido */
+    box-sizing: border-box !important;
+  }
+
+  .hydra-team-combined-card,
+  .hydra-team-callout {
+    width: 100% !important;
+    /* Se adapta al ancho de la pantalla pero mantiene tu tamaño máximo ideal de 450px */
+    max-width: min(450px, 100%) !important;     
+    padding: 16px !important;
+    border-radius: 14px !important;
+    margin-left: auto !important;      /* Centrado automático */
+    margin-right: auto !important;     /* Centrado automático */
+    text-align: center !important;     /* Texto centrado */
+    box-sizing: border-box !important;
+  }
+
+  .hydra-team-title.line-1 {
+    /* Mantiene tu tamaño de 1.6rem pero usa clamp para reducirse ligeramente en móviles muy pequeños si fuera necesario */
+    font-size: clamp(1.3rem, 4vw, 1.6rem) !important;     
+    text-align: center !important;     /* Título centrado */
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hydra-team-text-wrapper,
+  .hydra-team-description {
+    font-size: 0.92rem !important; 
+    text-align: center !important;     /* Texto centrado */
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .hydra-team-img-wrapper {
+    width: 100% !important;
+    margin-bottom: 12px !important;
+    text-align: center !important;     /* Imagen centrada */
+    display: flex !important;
+    justify-content: center !important;
+  }
 }
 
 
