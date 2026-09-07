@@ -1793,14 +1793,19 @@ body.js-enabled .reveal.visible {
 @media (max-width: 920px) {
   #hydra_interactive_showcase_canvas_container {
     position: relative !important;
-    width: 600px !important;
-    max-width: 100% !important; /* <--- Evita que desborde en pantallas menores a 600px */
-    height: 500px !important;
+    /* Usamos min() y un ancho basado en el viewport para que se achique automáticamente en móviles pequeños, sin pasar de 600px */
+    width: min(600px, 92vw) !important;
+    max-width: 100% !important; 
+    
+    /* Hacemos que la altura también sea flexible o proporcional al ancho para evitar que se deforme verticalmente */
+    height: clamp(350px, 75vw, 500px) !important; 
+    
     margin: 0 auto !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     overflow: hidden !important;
+    box-sizing: border-box !important;
   }
 
   /* --- FUERZA AL CANVAS INTERNO A NO DEFORMARSE --- */
