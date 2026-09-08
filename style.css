@@ -2114,7 +2114,7 @@ body.js-enabled .reveal.visible {
     /* Hacemos que la altura también sea flexible o proporcional al ancho para evitar que se deforme verticalmente */
     height: clamp(300px, 75vw, 450px) !important; 
     
-    margin-left: -20px !important;
+    margin-left: -10px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
