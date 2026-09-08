@@ -2115,6 +2115,7 @@ body.js-enabled .reveal.visible {
     height: clamp(300px, 75vw, 450px) !important; 
     
     margin-left: -10px !important;
+    
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -2592,7 +2593,7 @@ body.js-enabled .reveal.visible {
 
   .hydra-gallery-divider {
     width: 100% !important; 
-    max-width: min(550px, 90vw) !important; 
+    max-width: min( 250px, 90vw) !important; 
     min-width: 0 !important;                                         
     height: 2px !important;                                             
     display: block !important;                                 
@@ -2601,12 +2602,12 @@ body.js-enabled .reveal.visible {
   }
 
   .hydra-gallery-text-block {
-    margin: 5px auto 15px auto !important; /* Empuja el contenido hacia arriba y deja espacio abajo */
-    font-size: clamp(0.9rem, 2.5vw, 1rem) !important; 
+    margin: 10px auto 224px auto !important; /* Empuja el contenido hacia arriba y deja espacio abajo */
+    font-size: clamp(0.75rem, 2.5vw, 1rem) !important; 
     text-align: center !important;
     line-height: 1.5 !important;
     font-family: inherit !important;
-    width: 90% !important;
+    width: 95% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
   }
