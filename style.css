@@ -1258,26 +1258,81 @@ body.js-enabled .reveal.visible {
     box-sizing: border-box !important;
   }
 
-  div.hydra-main-page-card,
+div.hydra-main-page-card,
   .hydra-main-page-card {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
     pointer-events: auto !important;
+    
+    /* ANCHO INTACTO: Conserva tu diseño original */
     width: 120% !important;
-    height: 80% !important;
-    min-height: 80% !important;
-    max-width: 120% !important;
-    max-height: 60% !important;
-    margin: -85px !important; /* Centrado perfecto y limpio con 'auto' */
-    top: 700px;
-    padding: 30px !important;
+    max-width: 120% !important; 
+    
+    /* ALTO INVERSO: Tus proporciones actuales */
+    height: clamp(60%, 100vh, 60%) !important;
+    min-height: clamp(60%, 100vh, 60%) !important;
+    max-height: none !important;
+    
+    /* POSICIÓN FLUIDA Y ADAPTATIVA: Cambia suavemente según la pantalla */
+    /* El orden es: (Mínimo absoluto, Valor ideal basado en la altura de la pantalla, Máximo absoluto) */
+    top: clamp(575px, 45vh, 575px) !important;
+    margin-left: clamp(-40px center, 45vh, center) !important;
+
+    padding: clamp(15px, 3vw, 30px) !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
     box-sizing: border-box !important;
   }
 
+.hydra-main-page-card-center-desc {
+    /* Posición vertical fluida */
+    bottom: clamp(-100px, -12vh, -120px);
+    
+    /* Ancho fluido (ajusté el mínimo a 250px para evitar que colapse mal) */
+    width: clamp(250px, 85vw, 375px) !important;
+    max-width: clamp(250px, 85vw, 400px) !important;
+    
+    /* TAMAÑO DE TEXTO FLUÍDO: Entre más pequeña la pantalla, más chico el texto */
+    font-size: clamp(0.25rem, 1vw, 1rem) !important; 
+    
+    box-sizing: border-box !important;
+  }
+
+
+.hydra-card-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espacio entre los botones */
+    flex-wrap: wrap;
+  }
+
+  .hydra-card-btn {
+    display: inline-block;
+    
+    /* TAMAÑO FLUIDO: Mantiene tu tamaño actual en PC y disminuye proporcionalmente en pantallas chicas */
+    padding: clamp(8px, 2vw, 12px) clamp(14px, 4vw, 28px); 
+    font-size: clamp(0.85rem, 2vw, 1.125rem);
+    min-width: clamp(100px, 100vw, 100px); /* Permite que el ancho mínimo también se adapte si la pantalla es muy angosta */
+    
+    font-weight: 500;
+    color: hsl(0, 0%, 100%);
+    background: hsla(230, 50%, 25%, 0.5);
+    border: 1px solid hsla(230, 80%, 65%, 0.5);
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .hydra-card-btn:hover {
+    background: hsla(185, 80%, 50%, 0.25);
+    border-color: hsla(195, 100%, 60%, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 50px hsla(0, 0%, 0%, 0.18);
+  }
 
   /* Aseguramos que los elementos internos generales se muestren */
   .hydra-main-page-sub-card *,
@@ -2398,9 +2453,9 @@ body.js-enabled .reveal.visible {
 .hydra_gallery_art_card-preview {
   position: sticky;
   top: 100px;
-  width: 100%;
+  width: 1024px;
   min-height: 1024px;
-  height: 1024px;
+  height: 800px;
   background: hsla(0, 0%, 0%, 0.5);
   backdrop-filter: blur(12px);
   border-radius: 24px;
@@ -2593,7 +2648,7 @@ body.js-enabled .reveal.visible {
 
   .hydra-gallery-divider {
     width: 100% !important; 
-    max-width: min( 250px, 90vw) !important; 
+    max-width: min( 340px, 90vw) !important; 
     min-width: 0 !important;                                         
     height: 2px !important;                                             
     display: block !important;                                 
@@ -2605,7 +2660,7 @@ body.js-enabled .reveal.visible {
     margin: 10px auto 224px auto !important; /* Empuja el contenido hacia arriba y deja espacio abajo */
     font-size: clamp(0.75rem, 2.5vw, 1rem) !important; 
     text-align: center !important;
-    line-height: 1.5 !important;
+    line-height: 1.375 !important;
     font-family: inherit !important;
     width: 95% !important;
     max-width: 100% !important;
@@ -2614,15 +2669,15 @@ body.js-enabled .reveal.visible {
 
   #hydra_gallery_art_canvas-3d-container {
     position: absolute !important;
-    top: 23.5% !important;
+    top: 21% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
     
-    width: min(340px, 70vw) !important;
+    width: min(275px, 70vw) !important;
     max-width: 100% !important;
     min-width: 0 !important;
     
-    height: min(340px, 70vw) !important;
+    height: min(275px, 70vw) !important;
     min-height: 0 !important;
     max-height: 360px !important;
     
@@ -3507,3 +3562,767 @@ body.js-enabled .reveal.visible {
 
 
 
+
+/* ==========================================================
+   RESPONSIVE STABILITY PATCH
+   Keeps the existing visual style, links and asset routes intact.
+   ========================================================== */
+
+/* Prevent flex/grid children and long text from forcing horizontal overflow. */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body,
+main,
+header,
+section,
+footer,
+.hydra-main-page-content,
+.hydra-main-page-left,
+.hydra-main-page-right-custom,
+.hydra_about_me_card-content-wrapper,
+.hydra_about_me_card-text-column,
+.hydra_gallery_art_card-layout,
+.hydra_gallery_art_card-wrapper {
+  min-width: 0;
+}
+
+img,
+video,
+canvas {
+  max-width: 100%;
+}
+
+/* ---------- Global page spacing ---------- */
+.hero {
+  padding-inline: clamp(18px, 5vw, 8%) !important;
+  padding-top: clamp(16px, 2vw, 28px) !important;
+  padding-bottom: clamp(48px, 6vw, 88px) !important;
+}
+
+.section {
+  padding-inline: clamp(18px, 5vw, 8%) !important;
+}
+
+/* ---------- Navigation ---------- */
+.hydra_navigation_bar {
+  width: min(100%, 1600px) !important;
+  margin-inline: auto !important;
+  flex-wrap: wrap !important;
+  gap: 10px 16px !important;
+}
+
+.hydra_navigation_bar__logo {
+  min-width: 0 !important;
+  flex: 0 1 auto !important;
+}
+
+.hydra_navigation_bar__links {
+  position: static !important;
+  left: auto !important;
+  margin-left: auto !important;
+  justify-content: flex-end !important;
+  flex: 1 1 420px !important;
+  min-width: 0 !important;
+}
+
+.hydra_navigation_bar__audio-btn {
+  left: auto !important;
+  top: auto !important;
+  flex: 0 0 auto !important;
+}
+
+/* ---------- Hero / main page ---------- */
+.hydra-main-page-content {
+  width: min(100%, 1600px) !important;
+  margin: 0 auto !important;
+  padding: clamp(48px, 6vw, 92px) 0 0 !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr) !important;
+  gap: clamp(28px, 4vw, 72px) !important;
+  align-items: center !important;
+  min-height: auto !important;
+}
+
+.hydra-main-page-left {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: clamp(14px, 2vw, 22px) !important;
+}
+
+.hydra-main-page-title.line-1,
+.hydra-main-page-title.line-2,
+.hydra-main-page-title.line-3,
+.hydra-main-page-content .hydra-main-page-left .hydra-main-page-staggered-titles .hydra-main-page-title {
+  font-size: clamp(3.4rem, 6.5vw, 8.5rem) !important;
+  line-height: .96 !important;
+  margin: 0 !important;
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.hydra-main-page-cards-row {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(10px, 1.25vw, 16px) !important;
+  width: 100% !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+
+.hydra-main-page-sub-card,
+div.hydra-main-page-sub-card {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  min-height: 88px !important;
+  margin: 0 !important;
+  padding: 10px 12px !important;
+}
+
+.hydra-main-page-sub-card .hydra-main-page-card-center-desc {
+  position: static !important;
+  transform: none !important;
+  width: 100% !important;
+  max-width: none !important;
+  display: block !important;
+  text-align: left !important;
+}
+
+.hydra-main-page-sub-card .hydra-main-page-card-title-large {
+  font-size: clamp(1.45rem, 2.25vw, 2.25rem) !important;
+  text-align: left !important;
+}
+
+.hydra-main-page-sub-card .hydra-main-page-card-badge-desc {
+  font-size: clamp(.78rem, 1.1vw, 1rem) !important;
+  text-align: left !important;
+}
+
+.hydra-main-page-right-custom {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  gap: clamp(18px, 2vw, 26px) !important;
+  transform: none !important;
+}
+
+.hero-3d-box,
+#canvas-3d-container-hydra_mannequin_main_page {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 760px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 9 / 8 !important;
+  margin: 0 auto !important;
+  transform: none !important;
+}
+
+.hero-3d-box canvas,
+#canvas-3d-container-hydra_mannequin_main_page canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+.hydra-main-page-card,
+div.hydra-main-page-card {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  width: 100% !important;
+  max-width: 760px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin: 0 auto !important;
+  padding: clamp(18px, 2vw, 24px) !important;
+  display: block !important;
+}
+
+.hydra-main-page-card:hover {
+  transform: translateY(-4px) !important;
+}
+
+.hydra-main-page-card-top-header {
+  position: static !important;
+  display: flex !important;
+  margin-bottom: 14px !important;
+}
+
+.hydra-main-page-card-center-desc,
+.hydra-main-page-card .hydra-main-page-card-center-desc {
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  width: 100% !important;
+  max-width: none !important;
+  text-align: center !important;
+  font-size: inherit !important;
+}
+
+.hydra-main-page-card .hydra-main-page-card-badge-desc {
+  font-size: clamp(.95rem, 1.25vw, 1.2rem) !important;
+  line-height: 1.55 !important;
+}
+
+.hydra-card-buttons {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+.hydra-card-btn {
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 11px 14px !important;
+  font-size: clamp(.88rem, 1.1vw, 1.05rem) !important;
+}
+
+/* ---------- About / Team ---------- */
+.about {
+  display: block !important;
+}
+
+.hydra_about_me_card-content-wrapper,
+.hydra_about_me_card-text-column {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.hydra_about_me_card {
+  width: 100% !important;
+  max-width: 1600px !important;
+  margin-inline: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: clamp(18px, 3vw, 36px) !important;
+}
+
+.hydra_about_me_card-video-wrapper,
+.hydra_about_me_card-img-wrapper {
+  flex: 0 1 420px !important;
+  width: min(100%, 420px) !important;
+  min-width: 0 !important;
+  max-width: 420px !important;
+}
+
+.hydra_about_me_card .hydra_about_me_card-text-wrapper {
+  min-width: 0 !important;
+  flex: 1 1 0 !important;
+}
+
+/* ---------- Skills ---------- */
+.hydra_skills_grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)) !important;
+}
+
+/* ---------- Featured interactive model ---------- */
+.hydra_interactive_showcase_wrapper {
+  width: 100% !important;
+}
+
+#hydra_interactive_showcase_canvas_container {
+  width: 100% !important;
+  max-width: 1400px !important;
+  height: clamp(520px, 66vw, 900px) !important;
+  min-height: 0 !important;
+  margin-inline: auto !important;
+}
+
+#hydra_interactive_showcase_canvas_container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ---------- Artwork gallery ---------- */
+
+/*
+.hydra_gallery_art_card-layout {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: minmax(300px, 400px) minmax(0, 1fr) !important;
+  gap: clamp(18px, 2.5vw, 36px) !important;
+  align-items: start !important;
+  padding: 0 !important;
+}
+
+.hydra_gallery_art_card-menu {
+  width: 100% !important;
+  height: min(78vh, 900px) !important;
+  max-height: min(78vh, 900px) !important;
+  margin: 0 !important;
+}
+
+.hydra_gallery_art_card-preview {
+  position: relative !important;
+  top: auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: 1 / 1 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.hydra_gallery_art_card-preview > div[style*="-980px"] {
+  margin: 0 !important;
+  position: absolute !important;
+  left: 50% !important;
+  bottom: clamp(14px, 2vw, 28px) !important;
+  transform: translateX(-50%) !important;
+  width: min(92%, 850px) !important;
+  z-index: 4 !important;
+  padding: 12px !important;
+  border-radius: 12px !important;
+  background: hsla(225, 45%, 8%, .48) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.hydra-gallery-divider {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 850px !important;
+}
+
+.hydra-gallery-text-block {
+  width: 100% !important;
+  font-size: clamp(.8rem, 1vw, 1.05rem) !important;
+}
+
+.hydra_gallery_art_card-wrapper {
+  width: 100% !important;
+  display: block !important;
+  margin: clamp(28px, 4vw, 60px) auto 40px !important;
+}
+
+#hydra_gallery_art_canvas-3d-container {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  width: min(100%, 900px) !important;
+  max-width: 900px !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: 6 / 5 !important;
+  margin: 0 auto !important;
+  transform: none !important;
+}
+
+#hydra_gallery_art_canvas-3d-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.mini-gallery,
+.hydra_gallery_art_card {
+  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr)) !important;
+}
+
+*/
+
+/* ---------- Project sliders ---------- */
+.horizontal-slider,
+.projects-grid {
+  max-width: 100% !important;
+}
+
+.horizontal-slider .project-card,
+.projects-grid .project-card,
+[id^="hydra_other_projects_card_"] {
+  flex-shrink: 0 !important;
+}
+
+/* ---------- Contact ---------- */
+.hydra_contact_card_links_container a,
+.hydra_contact_card_single_link {
+  width: min(175px, 100%) !important;
+}
+
+.hydra_contact_cards_grid_container {
+  width: min(100%, 500px) !important;
+  height: auto !important;
+}
+
+/* ---------- Medium screens ---------- */
+@media (max-width: 1180px) {
+  .hydra_navigation_bar__links {
+    flex-basis: 100% !important;
+    order: 3 !important;
+    margin-left: 0 !important;
+    justify-content: center !important;
+  }
+
+  .hydra_navigation_bar__audio-btn {
+    margin-left: auto !important;
+  }
+
+  .hydra-main-page-content {
+    grid-template-columns: minmax(0, 1fr) minmax(340px, .82fr) !important;
+    gap: 28px !important;
+  }
+
+  .hydra-main-page-title.line-1,
+  .hydra-main-page-title.line-2,
+  .hydra-main-page-title.line-3,
+  .hydra-main-page-content .hydra-main-page-left .hydra-main-page-staggered-titles .hydra-main-page-title {
+    font-size: clamp(3.2rem, 7.1vw, 5.9rem) !important;
+  }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto !important;
+  }
+
+  .hydra-main-page-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 34px !important;
+    padding-top: 42px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .hydra-main-page-left {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .hydra-main-page-staggered-titles,
+  .hydra-staggered-titles {
+    align-items: center !important;
+  }
+
+  .hydra-main-page-title.line-1,
+  .hydra-main-page-title.line-2,
+  .hydra-main-page-title.line-3,
+  .hydra-main-page-content .hydra-main-page-left .hydra-main-page-staggered-titles .hydra-main-page-title {
+    font-size: clamp(3.1rem, 11vw, 6rem) !important;
+    text-align: center !important;
+  }
+
+  .hydra-main-page-divider {
+    width: min(100%, 760px) !important;
+  }
+
+  .hydra-main-page-cards-row {
+    width: min(100%, 760px) !important;
+  }
+
+  .hydra-main-page-right-custom {
+    width: min(100%, 760px) !important;
+    margin-inline: auto !important;
+  }
+
+  .hero-3d-box,
+  #canvas-3d-container-hydra_mannequin_main_page {
+    max-width: 680px !important;
+  }
+
+  .hydra_about_me_card {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .hydra_about_me_card-video-wrapper,
+  .hydra_about_me_card-img-wrapper {
+    flex-basis: auto !important;
+    width: min(100%, 620px) !important;
+    max-width: 620px !important;
+  }
+
+  .hydra_about_me_card .hydra_about_me_card-text-wrapper {
+    width: 100% !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+/*
+
+  .hydra_gallery_art_card-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  .hydra_gallery_art_card-preview {
+    order: 1 !important;
+    width: min(100%, 720px) !important;
+    margin-inline: auto !important;
+  }
+
+  .hydra_gallery_art_card-menu {
+    order: 2 !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+  }
+
+  .hydra-gallery-text-block {
+    font-size: clamp(.72rem, 1.8vw, .95rem) !important;
+  }
+
+  #hydra_gallery_art_canvas-3d-container {
+    width: min(100%, 720px) !important;
+  } **/
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 640px) {
+  .hero {
+    padding-inline: 14px !important;
+  }
+
+  .section {
+    padding: 58px 14px !important;
+  }
+
+  .hydra_navigation_bar {
+    padding: 8px 10px !important;
+    border-radius: 14px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  .hydra_navigation_bar__logo {
+    flex: 1 1 auto !important;
+    gap: 8px !important;
+    font-size: clamp(.82rem, 3.7vw, 1rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .hydra_navigation_bar__logo-img {
+    width: 32px !important;
+    height: 32px !important;
+    flex: 0 0 32px !important;
+  }
+
+  .hydra_navigation_bar__audio-btn {
+    --audio-btn-size: 34px !important;
+    margin-left: 4px !important;
+  }
+
+  .hydra_navigation_bar__links {
+    order: 3 !important;
+    flex-basis: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+    width: 100% !important;
+    font-size: .78rem !important;
+  }
+
+  .hydra_navigation_bar__links a {
+    padding: 7px 5px !important;
+    text-align: center !important;
+  }
+
+  .hydra-main-page-content {
+    padding-top: 34px !important;
+    gap: 28px !important;
+  }
+
+  .hydra-main-page-title.line-1,
+  .hydra-main-page-title.line-2,
+  .hydra-main-page-title.line-3,
+  .hydra-main-page-content .hydra-main-page-left .hydra-main-page-staggered-titles .hydra-main-page-title {
+    font-size: clamp(2.75rem, 15vw, 4.8rem) !important;
+  }
+
+  .hydra-main-page-cards-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .hydra-main-page-sub-card,
+  div.hydra-main-page-sub-card {
+    min-height: 0 !important;
+    padding: 11px 14px !important;
+  }
+
+  .hydra-main-page-sub-card .hydra-main-page-card-center-desc,
+  .hydra-main-page-sub-card .hydra-main-page-card-title-large,
+  .hydra-main-page-sub-card .hydra-main-page-card-badge-desc {
+    text-align: center !important;
+  }
+
+  .hero-3d-box,
+  #canvas-3d-container-hydra_mannequin_main_page {
+    width: min(100%, 520px) !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  .model-switch-container {
+    right: 12px !important;
+    bottom: 12px !important;
+    transform: scale(.9) !important;
+    transform-origin: right bottom !important;
+  }
+
+  .hydra-main-page-card,
+  div.hydra-main-page-card {
+    padding: 16px !important;
+  }
+
+  .hydra-main-page-card-top-header {
+    justify-content: center !important;
+  }
+
+  .hydra-main-page-card-top-header .badge-image {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .hydra-main-page-card-top-header .badge-title {
+    font-size: 1.2rem !important;
+  }
+
+  .hydra-card-buttons {
+    grid-template-columns: 1fr !important;
+  }
+
+  #hydra_interactive_showcase_canvas_container {
+    height: clamp(400px, 105vw, 560px) !important;
+    border-radius: 16px !important;
+  }
+
+/*  .hydra_gallery_art_card-preview {
+    aspect-ratio: 5 / 5 !important;
+    border-radius: 16px !important;
+  }
+
+  .hydra_gallery_art_card-preview > div[style*="-980px"] {
+    width: calc(100% - 20px) !important;
+    bottom: 10px !important;
+    padding: 9px !important;
+  }
+
+  .hydra-gallery-text-block {
+    font-size: .68rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .hydra_gallery_art_card-header,
+  .hydra_gallery_art_card-item.active .hydra_gallery_art_card-header {
+    font-size: clamp(1rem, 5vw, 1.3rem) !important;
+    padding: 12px !important;
+  }
+
+  .hydra_gallery_art_card-icon {
+    width: 72px !important;
+    height: 72px !important;
+  }
+
+  .mini-gallery,
+  .hydra_gallery_art_card {
+    grid-template-columns: repeat(auto-fit, minmax(56px, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  #hydra_gallery_art_canvas-3d-container {
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 16px !important;
+  }*/
+
+  .projects-grid {
+    padding-inline: 0 !important;
+  }
+
+  #projects .project-card,
+  .projects-grid .project-card {
+    flex-basis: min(82vw, 280px) !important;
+    min-width: min(82vw, 280px) !important;
+    max-width: min(82vw, 280px) !important;
+  }
+
+  .hydra_contact_card_links_container {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+  }
+
+  .hydra_contact_card_links_container a,
+  .hydra_contact_card_single_link {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .hydra_contact_card_single_link .hydra_contact_card_label_text {
+    transform: none !important;
+    font-size: .78rem !important;
+  }
+
+  .hydra_contact_card_icon_wrapper {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .hydra_contact_cards_grid_container {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .hydra_navigation_bar__links {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hydra-main-page-title.line-1,
+  .hydra-main-page-title.line-2,
+  .hydra-main-page-title.line-3,
+  .hydra-main-page-content .hydra-main-page-left .hydra-main-page-staggered-titles .hydra-main-page-title {
+    font-size: clamp(2.45rem, 14vw, 3.5rem) !important;
+  }
+
+  .hydra_contact_card_links_container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Touch devices should keep the browser's native pointer behavior. */
+@media (hover: none), (pointer: coarse) {
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  canvas,
+  * {
+    cursor: auto !important;
+  }
+
+  #custom-cursor-dot,
+  #custom-cursor-ring {
+    display: none !important;
+  }
+}
