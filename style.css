@@ -2660,7 +2660,7 @@ body.js-enabled .reveal.visible {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)) !important; 
     justify-content: center !important; 
-    align-content: center !important;   
+    align-content: center !important;    
     gap: 12px !important;         
     margin-bottom: 0 !important;        
     width: 100% !important;
