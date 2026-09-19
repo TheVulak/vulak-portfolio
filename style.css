@@ -2188,36 +2188,45 @@ div.hydra-main-page-card,
 
 
 /* ==========================================================
-   ARTWORK GALLERY
+   ARTWORK GALLERY — POLISHED
    ========================================================== */
 
 .hydra_gallery_art_card-layout {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   gap: 32px;
   align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Menú de categorías adaptado y sincronizado a 1024px */
 .hydra_gallery_art_card-menu {
   display: flex;
   flex-direction: column;
   gap: 14px;
   position: relative;
   height: 1024px;
-  max-height: 1024px;
+  max-height: min(1024px, calc(100vh - 140px));
+  min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 6px;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
 
-.hydra_gallery_art_card-menu::-webkit-scrollbar {
+.hydra_gallery_art_card-menu::-webkit-scrollbar,
+.hydra_gallery_art_card-content > .hydra_gallery_art_card::-webkit-scrollbar,
+.hydra_gallery_art_card-content > .mini-gallery::-webkit-scrollbar {
   width: 6px;
 }
 
-.hydra_gallery_art_card-menu::-webkit-scrollbar-thumb {
+.hydra_gallery_art_card-menu::-webkit-scrollbar-thumb,
+.hydra_gallery_art_card-content > .hydra_gallery_art_card::-webkit-scrollbar-thumb,
+.hydra_gallery_art_card-content > .mini-gallery::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .hydra_gallery_art_card-item {
@@ -2226,27 +2235,41 @@ div.hydra-main-page-card,
   flex: 0 1 auto;
   display: flex;
   flex-direction: column;
-  /* Colores de borde y fondo heredados de las tarjetas inferiores */
+  min-width: 0;
   border: 1px solid var(--border);
   border-radius: 20px;
-  background: linear-gradient(180deg, hsla(240, 60%, 10%, 0.75), hsla(230, 65%, 13%, 0.625) 50%, hsla(220, 70%, 16%, 0.5));
+  background: linear-gradient(
+    180deg,
+    hsla(240, 60%, 10%, 0.75),
+    hsla(230, 65%, 13%, 0.625) 50%,
+    hsla(220, 70%, 16%, 0.5)
+  );
   overflow: hidden;
-  /* Sombra base idéntica a las tarjetas inferiores */
   box-shadow: 0 12px 50px hsla(0, 0%, 0%, 0.18);
-  transition: flex 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  transition:
+    flex 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .hydra_gallery_art_card-item::before {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0;
-  transition: .25s ease;
   z-index: 1;
+  opacity: 0;
   pointer-events: none;
-  /* Gradiente de brillo deslizante exacto al del bloque inferior */
-  background: linear-gradient(120deg, transparent, hsla(0, 0%, 100%, 0.28), transparent);
+  background: linear-gradient(
+    120deg,
+    transparent,
+    hsla(0, 0%, 100%, 0.28),
+    transparent
+  );
   transform: translateX(-100%);
+  transition:
+    opacity 0.25s ease,
+    transform 0.55s ease;
 }
 
 .hydra_gallery_art_card-item:hover::before {
@@ -2256,39 +2279,47 @@ div.hydra-main-page-card,
 
 .hydra_gallery_art_card-item:hover {
   transform: translateY(-8px);
-  /* Colores de borde y sombra hover exactos a las tarjetas de abajo */
   border-color: hsla(194, 100%, 62%, 0.58);
   box-shadow: 0 22px 70px hsla(286, 100%, 64%, 0.1);
 }
 
 .hydra_gallery_art_card-item.active {
   flex: 1 1 auto;
-  /* Mantiene la consistencia de colores para el estado activo */
   border-color: hsla(194, 100%, 62%, 0.58);
   box-shadow: 0 22px 70px hsla(286, 100%, 64%, 0.1);
 }
 
 .hydra_gallery_art_card-header {
+  position: relative;
+  z-index: 2;
   width: 100%;
+  min-width: 0;
   padding: 16px 20px 16px 16px;
   background: transparent;
   border: none;
   color: var(--text);
   font-size: 2.5rem;
   font-weight: 800;
+  line-height: 1.15;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
   box-sizing: border-box;
   cursor: pointer;
-  transition: padding 0.35s ease, font-size 0.35s ease;
+  transition:
+    padding 0.35s ease,
+    font-size 0.35s ease;
 }
 
 .hydra_gallery_art_card-item.active .hydra_gallery_art_card-header {
   padding: 12px 20px;
+  font-size: 2rem;
 }
 
-.hydra_gallery_art_card-menu:has(.hydra_gallery_art_card-item.active) .hydra_gallery_art_card-item:not(.active) .hydra_gallery_art_card-header {
+.hydra_gallery_art_card-menu:has(.hydra_gallery_art_card-item.active)
+  .hydra_gallery_art_card-item:not(.active)
+  .hydra_gallery_art_card-header {
   padding: 12px 16px;
   font-size: 1.2rem;
 }
@@ -2297,6 +2328,7 @@ div.hydra-main-page-card,
   display: flex;
   align-items: center;
   gap: 20px;
+  min-width: 0;
 }
 
 .hydra_gallery_art_card-icon {
@@ -2304,11 +2336,15 @@ div.hydra-main-page-card,
   height: 124px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: center;
   border-radius: 20px;
   border: 1px solid var(--border);
   background: hsla(0, 0%, 100%, 0.05);
   flex-shrink: 0;
-  transition: width 0.35s ease, height 0.35s ease, border-radius 0.35s ease;
+  transition:
+    width 0.35s ease,
+    height 0.35s ease,
+    border-radius 0.35s ease;
 }
 
 .hydra_gallery_art_card-item.active .hydra_gallery_art_card-icon {
@@ -2317,19 +2353,27 @@ div.hydra-main-page-card,
   border-radius: 14px;
 }
 
-.hydra_gallery_art_card-menu:has(.hydra_gallery_art_card-item.active) .hydra_gallery_art_card-item:not(.active) .hydra_gallery_art_card-icon {
+.hydra_gallery_art_card-menu:has(.hydra_gallery_art_card-item.active)
+  .hydra_gallery_art_card-item:not(.active)
+  .hydra_gallery_art_card-icon {
   width: 84px;
   height: 84px;
   border-radius: 16px;
 }
 
-.hydra_gallery_art_card-header .hydra_gallery_art_card-arrow {
-  color: var(--accent-2);
+.hydra_gallery_art_card-header .hydra_gallery_art_card-arrow,
+.hydra_gallery_art_card-item .arrow {
+  color: hsla(192, 73%, 32%, 1);
   font-size: 1.2rem;
-  transition: transform 0.35s ease;
+  flex-shrink: 0;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
-.hydra_gallery_art_card-item.active .hydra_gallery_art_card-header .hydra_gallery_art_card-arrow {
+.hydra_gallery_art_card-item.active .hydra_gallery_art_card-header .hydra_gallery_art_card-arrow,
+.hydra_gallery_art_card-item.active .arrow {
+  color: hsla(189, 73%, 58%, 1);
   transform: rotate(180deg);
 }
 
@@ -2341,14 +2385,16 @@ div.hydra-main-page-card,
 }
 
 .hydra_gallery_art_card-item.active .hydra_gallery_art_card-content {
-  max-height: 400px; /**/
+  max-height: 400px;
 }
 
-.hydra_gallery_art_card-content > .hydra_gallery_art_card {
+.hydra_gallery_art_card-content > .hydra_gallery_art_card,
+.hydra_gallery_art_card-content > .mini-gallery {
+  width: 100%;
   overflow: hidden;
   padding: 0 24px;
   box-sizing: border-box;
-  transition: padding-bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hydra_gallery_art_card-item.active .hydra_gallery_art_card-content > .hydra_gallery_art_card {
@@ -2356,21 +2402,18 @@ div.hydra-main-page-card,
   overflow-x: hidden;
   max-height: 350px;
   padding: 12px 16px;
-  box-sizing: border-box;
 }
 
-.hydra_gallery_art_card-item.active .hydra_gallery_art_card-content > .hydra_gallery_art_card::-webkit-scrollbar {
-  width: 6px;
-}
-
-.hydra_gallery_art_card-item.active .hydra_gallery_art_card-content > .hydra_gallery_art_card::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
+.hydra_gallery_art_card-item.active .hydra_gallery_art_card-content > .mini-gallery {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 350px;
+  padding: 10px 8px;
 }
 
 .hydra_gallery_art_card {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(8, minmax(0, 1fr));
   gap: 6px;
   width: 100%;
 }
@@ -2379,83 +2422,47 @@ div.hydra-main-page-card,
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: center;
   border-radius: 8px;
   border: 1px solid var(--border);
   cursor: pointer;
   box-sizing: border-box;
   display: block;
   overflow: hidden;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .hydra_gallery_art_card-thumb:hover {
   transform: scale(1.08);
   border-color: var(--accent-2);
   box-shadow: 0 4px 12px hsla(270, 100%, 64%, 0.3);
-  
 }
 
-
-/* El título se encoge SOLO en la tarjeta que esté activa/abierta */
-.hydra_gallery_art_card-item.active .hydra_gallery_art_card-header {
-  font-size: 2rem; /* Ajusta este valor al tamaño que prefieras cuando esté abierta */
-  padding: 12px 20px;
-}
-
-/* Rotación suave de la flecha cuando el acordeón está activo */
-.hydra_gallery_art_card-item.active .arrow {
-  color: hsla(189, 73%, 58%, 1);
-  transform: rotate(180deg);
-  transition: transform 0.3s ease;
-}
-
-.hydra_gallery_art_card-item .arrow {
-  color: hsla(192, 73%, 32%, 1);
-  transition: transform 0.3s ease;
-}
-
-/**/
-
-.hydra_gallery_art_card-content > .mini-gallery {
-  overflow: hidden;
-  padding: 0 24px;
-  box-sizing: border-box;
-  transition: padding-bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hydra_gallery_art_card-item .hydra_gallery_art_card-content > .mini-gallery {
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-height: 350px;
-  padding: 10px 8px;
-  box-sizing: border-box;
-}
-
-.hydra_gallery_art_card-item .hydra_gallery_art_card-content > .mini-gallery::-webkit-scrollbar {
-  width: 6px;
-}
-
-.hydra_gallery_art_card-item .hydra_gallery_art_card-contentt > .mini-gallery::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 6px;
+.hydra_gallery_art_card-thumb:focus-visible,
+.hydra_gallery_art_card-header:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
 }
 
 .mini-gallery {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(8, minmax(0, 1fr));
   gap: 7px;
   width: 100%;
 }
 
-/**/
-
-/* Recuadro negro derecho con tamaño fijo en 1024px */
+/* Preview */
 .hydra_gallery_art_card-preview {
   position: sticky;
   top: 100px;
-  width: 1024px;
-  min-height: 1024px;
-  height: 800px;
+  width: 100%;
+  max-width: 1024px;
+  min-width: 0;
+  min-height: 0;
+  height: 1024px;
   background: hsla(0, 0%, 0%, 0.5);
   backdrop-filter: blur(12px);
   border-radius: 24px;
@@ -2464,15 +2471,16 @@ div.hydra-main-page-card,
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .hydra_gallery_art_card-preview img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
@@ -2515,7 +2523,7 @@ div.hydra-main-page-card,
 
 .hydra_gallery_art_card-wrapper {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
   gap: 32px;
   align-items: center;
 }
@@ -2524,7 +2532,12 @@ div.hydra-main-page-card,
   padding: 24px;
   border: 1px solid var(--border);
   border-radius: 22px;
-  background: linear-gradient(180deg, hsla(240, 60%, 10%, 0.75), hsla(230, 65%, 13%, 0.625) 50%, hsla(220, 70%, 16%, 0.5));
+  background: linear-gradient(
+    180deg,
+    hsla(240, 60%, 10%, 0.75),
+    hsla(230, 65%, 13%, 0.625) 50%,
+    hsla(220, 70%, 16%, 0.5)
+  );
   box-shadow: 0 12px 50px hsla(0, 0%, 0%, 0.18);
 }
 
@@ -2539,30 +2552,22 @@ div.hydra-main-page-card,
   margin-bottom: 20px;
 }
 
-
-
 #hydra_gallery_art_canvas-3d-container {
   position: relative;
   width: 900px;
   max-width: 900px;
   min-height: 750px;
-  height: 0px; /* Ajusta este valor si está muy grande (ej. de 1200px a 500px/600px) */
- 
-  
-  /* 1. Mantiene el contenedor centrado de base en la página */
-  margin: 0px auto 0px auto; 
-
-  /* 2. Mueve el recuadro exactamente en X e Y */
-  /* Cambia '0px' por los valores que necesites (ejemplo: translateX(100px) translateY(-50px)) */
-  transform: translate(-35px, -215px); 
-
+  height: 0;
+  margin: 0 auto;
+  transform: translate(-35px, -215px);
   background: hsla(0, 0%, 0%, 0);
-  border: px solid var(--border);
+  border: 1px solid transparent;
   border-radius: 24px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 #hydra_gallery_art_canvas-3d-container canvas {
@@ -2586,16 +2591,13 @@ div.hydra-main-page-card,
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  /* POSICIÓN: Usa el 'margin' o 'transform: translate(x, y)' para moverlo donde quieras */
-  margin: 0px 0px -1800px; 
+  margin: 0 0 -1800px;
   z-index: 2;
 }
 
-
 .hydra-gallery-divider {
-  width: 850px; /* <--- Cambia el ancho de la línea aquí */
-  height: 3px;  /* <--- Cambia el grosor de la línea aquí */
+  width: 850px;
+  height: 3px;
   min-width: 600px;
   min-height: 3px;
   background-color: hsla(187, 71%, 46%, 0.7450980392156863);
@@ -2606,9 +2608,9 @@ div.hydra-main-page-card,
 
 .hydra-gallery-text-block {
   color: var(--muted, hsla(0, 0%, 63%, 1));
-  font-size: 1.25rem; /* <--- Cambia el TAMAÑO del texto aquí (ej. 1.2rem, 1rem, etc.) */
+  font-size: 1.25rem;
   text-align: center;
-  line-height: 1.5;  /* <--- Separación entre renglones */
+  line-height: 1.5;
   font-family: inherit;
 }
 
@@ -2616,7 +2618,7 @@ div.hydra-main-page-card,
   .hydra_gallery_art_card-layout {
     display: flex !important;
     flex-direction: column !important;
-    gap: 10px !important; /* Reducimos el espacio general entre elementos */
+    gap: 10px !important;
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 12px !important;
@@ -2624,21 +2626,16 @@ div.hydra-main-page-card,
     position: relative !important;
   }
 
-  /* Vista previa más arriba */
-/* Vista previa más alta */
   .hydra_gallery_art_card-preview {
     order: 1 !important;
     position: relative !important;
     width: 100% !important;
     max-width: min(600px, 94vw) !important;
     min-width: 0 !important;
-    
-    /* MODIFICA ESTOS VALORES PARA AUMENTAR EL ALTO DEL RECUADRO */
-    height: clamp(480px, 80vw, 750px) !important; /* Antes estaba más bajo (380px...600px) */
+    height: clamp(480px, 80vw, 750px) !important;
     min-height: 0 !important;
-    max-height: 750px !important; /* Límite máximo aumentado a 750px (puedes subirlo más si gustas) */
-    
-    margin: -20px auto 0 auto !important; 
+    max-height: 750px !important;
+    margin: -20px auto 0 auto !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -2647,18 +2644,18 @@ div.hydra-main-page-card,
   }
 
   .hydra-gallery-divider {
-    width: 100% !important; 
-    max-width: min( 340px, 90vw) !important; 
-    min-width: 0 !important;                                         
-    height: 2px !important;                                             
-    display: block !important;                                 
-    margin: 0 auto !important;    
+    width: 100% !important;
+    max-width: min(340px, 90vw) !important;
+    min-width: 0 !important;
+    height: 2px !important;
+    display: block !important;
+    margin: 0 auto !important;
     box-sizing: border-box !important;
   }
 
   .hydra-gallery-text-block {
-    margin: 10px auto 224px auto !important; /* Empuja el contenido hacia arriba y deja espacio abajo */
-    font-size: clamp(0.75rem, 2.5vw, 1rem) !important; 
+    margin: 10px auto 224px auto !important;
+    font-size: clamp(0.75rem, 2.5vw, 1rem) !important;
     text-align: center !important;
     line-height: 1.375 !important;
     font-family: inherit !important;
@@ -2672,15 +2669,12 @@ div.hydra-main-page-card,
     top: 21% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
-    
     width: min(275px, 70vw) !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    
     height: min(275px, 70vw) !important;
     min-height: 0 !important;
     max-height: 360px !important;
-    
     box-sizing: border-box !important;
     overflow: hidden !important;
     margin: 0 !important;
@@ -2693,35 +2687,62 @@ div.hydra-main-page-card,
     object-fit: contain !important;
   }
 
-  /* Menú / Categorías mucho más abajo */
   .hydra_gallery_art_card-menu {
     order: 2 !important;
     height: auto !important;
     max-height: none !important;
     width: 100% !important;
-    margin-top: 200px !important; /* Margen superior amplio para bajarlas claramente */
-    margin-bottom: 20px !important; 
-    padding-bottom: 0px !important;
+    margin-top: 200px !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 0 !important;
     box-sizing: border-box !important;
   }
 
   .hydra_gallery_art_card-header {
-    font-size: clamp(1.3rem, 4vw, 1.6rem) !important; 
-    padding: 18px 20px !important;   
+    font-size: clamp(1.3rem, 4vw, 1.6rem) !important;
+    padding: 18px 20px !important;
     box-sizing: border-box !important;
   }
 
   .hydra_gallery_art_card {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)) !important; 
-    justify-content: center !important; 
-    align-content: center !important;    
-    gap: 12px !important;         
-    margin-bottom: 0 !important;        
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)) !important;
+    justify-content: center !important;
+    align-content: center !important;
+    gap: 12px !important;
+    margin-bottom: 0 !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
+
+  .mini-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)) !important;
+    gap: 10px !important;
+  }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .hydra_gallery_art_card-item,
+  .hydra_gallery_art_card-item::before,
+  .hydra_gallery_art_card-header,
+  .hydra_gallery_art_card-icon,
+  .hydra_gallery_art_card-content,
+  .hydra_gallery_art_card-thumb,
+  .hydra_gallery_art_card-header .hydra_gallery_art_card-arrow,
+  .hydra_gallery_art_card-item .arrow {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .hydra_gallery_art_card-item:hover {
+    transform: none;
+  }
+
+  .hydra_gallery_art_card-thumb:hover {
+    transform: none;
+  }
+}
+
 /* ==========================================================
    TOOLS
    ========================================================== */
